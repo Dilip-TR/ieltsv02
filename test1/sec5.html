@@ -1,0 +1,355 @@
+<!-- <div class="container-fluid" >
+    
+    </div> -->
+<div class="container-fluid" >
+    <div  ng-show="loader">
+        <h3><center>
+            <p> Please wait.....</p>
+            <p> Result rendaring...</p>
+        </center>
+
+    
+        </h3>
+      </div>
+  <div ng-hide="loader" >
+    <div class="row" >
+    <div class="row" style=" background: black;color: white;    height: 45px;">
+      <div class="col-md-4">
+
+      </div>
+      <div class="col-md-4">
+        <p style="position: relative;top: 10px; ">
+          <b>{{totalWriteingTime | secondsToTime}}
+            <span>Time Left</span>
+          </b>
+        </p>
+      </div>
+    </div>
+    </div>
+    <h2 ng-bind-html="quedata[part].quetions[actque1].head" ></h2>
+    <div class="row">
+    <div class="col-md-6" style="overflow-y: scroll;height: 549px;overflow-x: hidden;">
+      <p class="paraalign"ng-bind-html="quedata[part].quetions[actque1].paragraph" >
+        <!-- <p><img src="http://localhost/ieltsv02n/assets/writing1.PNG"></p> -->
+      </p>
+    </div>
+    <div  class="col-md-6">
+      <br> 
+      <div class="input-group " ng-repeat="options in quedata[part].quetions[actque1].options">
+          <div class="form-group">
+              <textarea ng-model="options.user_ans"  rows="25" cols="85" > </textarea>
+              <h4>Word Count: {{countword(options.user_ans)}}</h4>   
+          </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="row"  style="background-color:white;position: fixed; bottom: 10px; max-height: 100px; z-index: 1030;width: 100%;    border-top: 3px solid #E7EAED ">
+          
+          <div class="col-md-10" style="background-color:white;padding: 11px 2px 6px 30px;">
+              <ul class="pagination  ">
+                <span class="pagination part1"  ng-repeat="part1 in quedata['part1']['quetions']" >
+                    <li class="paghover part1s"  ng-if="part1.question_type_id == 1" 
+                      style="{{part1.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}"> 
+                      <a  class="paghover part1a" ng-click="changePart($index)" style="{{isAtttend(part1,1) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li> 
+                 </span>
+               </ul>
+          </div>
+          <div  class="col-md-1 pull-right">
+              <span ng-hide="showbtn">
+                  <BR>
+                    <button style="background: black;"   ng-if="actque1==1" ng-click="gotToNext()" class="btn btn-primary">Submit</button>
+              </span>
+              <span ng-show="showbtn" >
+                  <BR>
+                   <button style="background: black;" ng-disabled="true"  ng-if="actque1==1"  class="btn btn-primary">Sending...</button>
+              </span>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+</div>
+
+<style>
+  .panel-body {
+    padding: 0px !important;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotateZ(0);
+    }
+    to {
+      transform: rotateZ(1turn);
+    }
+  }
+
+  @media (min-width:768px) and (max-width:980px) {
+    .question-buttons {
+      width: 94%;
+    }
+  }
+
+  @media (max-width:767px) {
+    .reading-footer {
+      position: absolute;
+      top: 970px;
+      bottom: inherit;
+    }
+    .question-buttons {
+      width: 94%;
+    }
+    .clock {
+      text-align: left;
+      line-height: 4.5em;
+    }
+    .left {
+      width: 100% !important;
+    }
+    .splitter-container {
+      display: block !important;
+    }
+  }
+
+  .paraalign {
+    text-align: justify;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .paraoverview {
+    height: 520px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .staff {
+    margin: 10px 0;
+  }
+
+  .staff-block {
+    float: left;
+    width: 48%;
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+
+  .staff-title {
+    /* font-family: Verdana, Tahoma, Arial, Serif; */
+    background-color: #1162c5;
+    color: white;
+    padding: 4px;
+    border: solid 1px #2e3d7a;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 6px;
+    font-weight: bold;
+  }
+
+  .staff-name {
+    /* font-family: Myriad Web Pro; */
+    font-size: 14px;
+    line-height: 30px;
+    padding: 0 10px;
+    background-color: silver !important;
+    width: 600px !important;
+  }
+
+  .staff-name:hover {
+    background-color: silver !important;
+    cursor: pointer;
+  }
+
+  .staff-section {
+    display: inline-block;
+    padding-left: 10px;
+  }
+
+  .staff-desc {
+    font-family: Myriad Web Pro;
+    height: 0px;
+    padding: 3px;
+    overflow: hidden;
+    /* background-color: #def; */
+    display: block;
+    /* /* border: solid 1px silver; */
+  }
+
+  .staff-desc p {
+    text-align: justify;
+    margin-top: 5px;
+  }
+
+  .staff-desc img {
+    margin: 5px 10px 5px 5px;
+    float: left;
+    height: 185px;
+  }
+
+  .partalign {
+    position: relative;
+    bottom: 10px;
+    font-weight: bold;
+  }
+
+  /* .paghover:hover{
+    background: black;
+    color: white;
+    /* padding: 1px solid; 
+    } */
+
+  input:focus {
+    background: yellow;
+  }
+
+  li a:hover {
+    background: black !important;
+    color: white !important;
+    cursor: pointer;
+  }
+
+  .staff-name:hover {
+    background-color: #00C0EF !important;
+    color: white;
+  }
+</style>
+<script>
+  window.SetVolume = function (val) {
+    var player = document.getElementById('audio');
+    console.log('Before: ' + player.volume);
+    player.volume = val / 100;
+    console.log('After: ' + player.volume);
+  }
+  $('.staff-name').hover(function () {
+    $(this).toggleClass('hover');
+  });
+
+  var lastItem;
+
+  $('.staff-name').click(function (currentItem) {
+    alert("hai");
+    var currentItem = $(this);
+    if ($(this).next().height() == 0) {
+      $(lastItem).css({ 'font-weight': 'normal' });
+      $(lastItem).next().animate({ height: '0px' }, 400, 'swing');
+      $(this).css({ 'font-weight': 'bold' });
+
+      // $(this).css({"background-color": 'red',"color" : "white"});
+      $(this).next().animate({ height: '100px', opacity: 1 }, 400, 'swing');
+    } else {
+      $(this).css({ 'font-weight': 'normal' });
+      $(this).next().animate({ height: '0px', opacity: 1 }, 400, 'swing');
+    }
+    lastItem = $(this);
+  });
+  $('.splitter-container').SplitterBar();
+  $('.splitter-container2').SplitterBar();
+</script>
+<style type="text/css">
+  .list {
+    /* float: left; */
+    margin-left: 5px;
+    width: 50%;
+    height: 160px;
+  }
+
+  .listLeft {
+    /* float: left; */
+    margin-left: 5px;
+    width: 50%;
+    height: 32px;
+  }
+
+  .red {
+    /* border: 1px solid black; */
+  }
+
+  .green {
+    border: 1px solid green;
+  }
+
+  /* .yellow {
+        border: 1px solid yellow  ;
+      } */
+
+  .item987 {
+    width: auto;
+    border: 1px solid;
+    height: 30px;
+    text-align: center;
+    /* padding: 6px 0 0 68px; */
+    padding: 6px 0 0 0;
+  }
+
+  .red .item987 {
+    background-color: black;
+    color: white;
+    cursor: grab !important;
+    border: 1px dotted;
+    /* width: 63%; */
+    width: 165px;
+    /* padding: 1px; */
+    margin: 11px 0 0 0px;
+  }
+
+  .green .item987 {
+    background-color: green;
+    color: white;
+
+  }
+
+  .dragover {
+    border: 2px dotted;
+    cursor: grab;
+
+  }
+
+  .dragging {
+    border: 2px dotted;
+    cursor: grab;
+
+
+  }
+
+  #description {
+    float: left;
+    margin-left: 20px;
+
+  }
+
+  .quetype2 {
+    position: relative;
+    left: 19px;
+    bottom: 17px;
+  }
+
+
+  /** Tag line style **/
+
+  .navbar-inverse {
+    height: 50px;
+    margin: 50px 0px 80px;
+  }
+
+  .brand-img {
+    border-radius: 50%;
+    position: relative;
+    top: -37px;
+    height: 128px;
+    width: 128px;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-header {
+      float: left;
+      padding-left: 25px;
+    }
+    .navbar ul {
+      float: right;
+      display: inline-flex;
+    }
+  }
+</style>
+<!-- {{quedata[part]}} -->

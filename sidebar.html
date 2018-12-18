@@ -1,0 +1,44 @@
+
+<div ng-controller="sidebarCntrl">
+<aside style="min-height: 1080px;position: fixed;height: auto; box-shadow: 0px 0px 5px grey;" class="main-sidebar sidebar-mini">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="assets/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>{{fullname}}</p>
+          <!-- Status -->
+          <a href=""><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      <!-- search form (Optional)
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
+      </form>
+      -->
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">HEADER</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li ><a ui-sref="dashboard"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+        <!-- <li><a ui-sref="lessons"><i class="fa fa-files-o"></i> <span>Lessons</span></a></li> -->
+         <li><a ui-sref="videos"><i class="fa fa-video-camera"></i> <span>Videos</span></a></li>
+        <!-- <li><a ui-sref="practisetest"><i class="fa fa-bullhorn"></i> <span>Practice Test</span></a></li>  -->
+        <li><a ui-sref="fulllength"><i class="fa fa-edit"></i> <span>Full Length Test</span></a></li>
+       
+        <li><a ui-sref="feedback"><i class="fa fa-comment"></i> <span>Feed Back Form</span></a></li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+</div>

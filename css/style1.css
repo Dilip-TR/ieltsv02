@@ -1,0 +1,70 @@
+.white_text a{
+	color: #000;
+
+}
+.bg1{
+    background: #fff;
+}
+.white_text a:hover{
+	color: #113f67;
+}
+.txt-black {
+color: #000 !important;
+}
+.vbg {
+    color: #fff !important;
+    background: #0F6DB5;
+}
+.gtimg{
+	margin: 10% 0% 0% 0%;
+}
+ .item {
+           
+            text-align: center;
+            height: 200px;
+}
+.thumbnail {
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #0000;
+    border: 0px solid #ddd; 
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}
+.forgot-password {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+.with-border {
+    border-bottom: 1px solid #f4f4f4;
+}
+/* Mobile View Media queroes */
+/*@media only screen and (max-width: 500px) {
+    body {
+        background-color: lightblue;
+    }
+}*/
+.flash {
+    animation-name: flash;
+     animation-duration: 3.1s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-play-state: running;
+     color: yellow;
+ }
+ 
+ @keyframes flash {
+     from {color: yellowgreen !important;}
+     to {color:blue !important;}
+ }
+ table {
+    font-size: 15px !important;
+    line-height: 20px !important;
+}

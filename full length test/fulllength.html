@@ -1,0 +1,234 @@
+
+<div ng-include="'header.html'"></div>
+<div ng-include="'sidebar.html'"></div>
+<div>
+    <div ng-if="acttype=='free'" style="padding:6px;" class="announcement">
+        <p  style="margin: 53px 0 0 458px;"><span style="font-size: 14px;"><b>To Access Unlimited FullLength Test</b></span> &nbsp;&nbsp; <button class="btn btn-danger btn-xs flash" ><a style="color:white;" href="http://ieltsscorebooster.com/free-ielts/upgrade.php?id={{userId}}">Upgrade Account</a></button></p> 
+     </div>
+<div ng-if="acttype=='free'">
+<div ng-hide="loader" class="content-wrapper" id="content">
+    <div  class="container-fluid" id="page-body">
+        <section class="content">
+            <meta name="layout" content="main" />
+            <div class="panel panel-body panelbox">
+                <div>
+                    <div class="container-fluid">
+                        <div class="row" id="inst">
+                            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2">
+                                <h2 class="text-center">Take a practice test and review your performance</h2>
+                                <br><p class="text-center" style="line-height: 23px; font-size: 15px;text-align: justify;"> Get comfortable with the test format by taking a practice exam under timed conditions; analyze and review your mistakes. Then come back and take a test again. Practice exams are scored ju-st like the actual GRE exam
+                                so take a practice test and get access to detailed performance information.</p>
+                                <br>
+                                <br>
+                                <div class="">
+                                        <div class="row">
+                                           <div>
+                                           <!-- {{post}} -->
+                                              <ul class="nav nav-tabs" role="tablist">
+                                                    <li role="presentation" class="active"><a data-target="#profile" aria-controls="profile" role="tab" data-toggle="tab">General</a></li>
+                                                 <li role="presentation"><a data-target="#home" aria-controls="home" role="tab" data-toggle="tab">Academic</a></li>
+                                                
+                                              </ul>
+                                            
+                                              <div class="tab-content">
+                                                 <div role="tabpanel" class="tab-pane" id="home">
+                                                    <div class="panel panel-body" style="padding: 0px !important;">
+                                                       <div ng-repeat="x in post | limitTo: limit"  id="lessonsView" class="lessonPanel view" style="z-index: 102; display: block;">
+                                                          <div ng-if="x.f3=='Academic'"  class="appLesson checkpoint active" style="opacity: 1; transform: translateY(0px);">
+                                                             <div class="number">
+                                                                <!-- <span  style="background:#EF0808;color: white; border-radius:0px; "class="badge badge-secondary">{{data.total_vedios}}</span> -->
+                                                             </div>
+                                                             <div class="name">
+                                                               </div>
+                                                             <div class="rating">
+                                                              <span class="testtitle" >{{x.title}} </span>
+                                                             </div>
+                                                             <div ng-if="!x.is_attend_test" class="info">
+                                                                    <span ng-click="getTestId(x.trackid,x)" > Start Test</span>
+                                                              </div>
+                                                              <div ng-if="x.is_attend_test" class="success">
+                                                                   <p><span ng-click="getTestId(x.trackid,x)" > Start Test</span> <span ng-click="review(x.trackid,x)" > Results</span></p> 
+                                                             </div>
+                                                          </div>
+                                                       </div>
+                                                    </div>
+                                                 </div>
+                                                 <div role="tabpanel" class="tab-pane active" id="profile">
+                                                   <div ng-repeat="x in post | limitTo: limit" id="lessonsView" class="lessonPanel view" style="z-index: 102; display: block;">
+                                                       <div  ng-if="x.f3=='General'"   class="appLesson checkpoint active general" style="opacity: 1; transform: translateY(0px);">
+                                                          <div class="number">
+                                                             <span  style="background:#EF0808;color: white; border-radius:0px; "class="badge badge-secondary"></span>
+                                                          </div>
+                                                          <div class="name">
+                                                            <!-- <span>IELTS</span> -->
+                                                       </div>
+                                                      <div class="rating">
+                                                      <span class="testtitle" >{{x.title}}</span> 
+                                                      </div>
+                                                      <div ng-if="!x.is_attend_test" class="info">
+                                                            <!-- {{x}}  -->
+                                                            <span ng-click="getTestId(x.trackid)" > Start Test</span>
+                                                            <!-- <span ng-click="review(x)" ng-if="checkIsOpenButton('save',x)"> Review</span> -->
+                                  
+                                                      </div>
+                                                      <div ng-if="x.is_attend_test" class="info">
+                                                            <p><span style="line-height: 0px;line-height: 0px; position: relative; right: 31px;top: 15px;" ng-click="getTestId(x.trackid,x)" > Start Test</span> <span  style="line-height: 0px;    line-height: 0px; position: relative;left: 37px;"  ng-click="review(x.trackid,x)" > Results</span></p> 
+                                                     </div>
+                                                       </div>
+                                                    </div>
+                                                 </div>
+                                              </div>
+                                           </div>
+                                        </div>
+                                     </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div ng-show="loader">
+    <center><img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif" /></center> 
+</div>
+
+</div>
+<div ng-if="acttype=='paid'">
+        <div ng-hide="loader" class="content-wrapper" id="content">
+            <div style="padding: 71px 15px 5px 15px;" class="container-fluid" id="page-body">
+                <section class="content">
+                    <meta name="layout" content="main" />
+                    <div class="panel panel-body panelbox">
+                        <div>
+                            <div class="container-fluid">
+                                <div class="row" id="inst">
+                                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2">
+                                        <h2 class="text-center">Take a practice test and review your performance</h2>
+                                        <br><p class="text-center" style="line-height: 23px; font-size: 15px;"> Get comfortable with the test format by taking a practice exam under timed conditions; analyze and review your mistakes. Then come back and take a test again. Practice exams are scored ju-st like the actual GRE exam
+                                        so take a practice test and get access to detailed performance information.</p>
+                                        <br>
+                                        <br>
+                                        <div class="">
+                                                <div class="row">
+                                                   <div>
+                                                   <!-- {{post}} -->
+                                                      <ul class="nav nav-tabs" role="tablist">
+                                                            <li role="presentation" class="active"><a data-target="#profile" aria-controls="profile" role="tab" data-toggle="tab">General</a></li>
+                                                         <li role="presentation"><a data-target="#home" aria-controls="home" role="tab" data-toggle="tab">Academic</a></li>
+                                                        
+                                                      </ul>
+                                                    
+                                                      <div class="tab-content">
+                                                         <div role="tabpanel" class="tab-pane" id="home">
+                                                            <div class="panel panel-body" style="padding: 0px !important;">
+                                                               <div ng-repeat="x in post" id="lessonsView" class="lessonPanel view" style="z-index: 102; display: block;">
+                                                                  <div ng-if="x.f3=='Academic'"  class="appLesson checkpoint active" style="opacity: 1; transform: translateY(0px);">
+                                                                     <div class="number">
+                                                                        <!-- <span  style="background:#EF0808;color: white; border-radius:0px; "class="badge badge-secondary">{{data.total_vedios}}</span> -->
+                                                                     </div>
+                                                                     <div class="name">
+                                                                       </div>
+                                                                     <div class="rating">
+                                                                      {{x.trackid}} 
+                                                                     </div>
+                                                                     <div ng-if="!x.is_attend_test" class="info">
+                                                                            <!-- {{x.trackid}}  -->
+                                                                            <span ng-click="getTestId(x.trackid,x)" > Start Test</span>
+                                                                            <!-- <span ng-click="review(x)" ng-if="checkIsOpenButton('save',x)"> Review</span> -->
+                                                  
+                                                                      </div>
+                                                                      <div ng-if="x.is_attend_test" class="success">
+                                                                            <span ng-click="review(x.trackid,x)" > Results</span>
+                                                                     </div>
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                         <div role="tabpanel" class="tab-pane active" id="profile">
+                                                           <div ng-repeat="x in post" id="lessonsView" class="lessonPanel view" style="z-index: 102; display: block;">
+                                                               <div  ng-if="x.f3=='General'"   class="appLesson checkpoint active general" style="opacity: 1; transform: translateY(0px);">
+                                                                  <div class="number">
+                                                                     <span  style="background:#EF0808;color: white; border-radius:0px; "class="badge badge-secondary"></span>
+                                                                  </div>
+                                                                  <div class="name">
+                                                             <!--        <span>IELTS</span> -->
+                                                               </div>
+                                                              <div class="rating">
+                                                               
+                                                              </div>
+                                                              <div ng-if="!x.is_attend_test"  class="info">
+                                                                    <!-- {{x.trackid}}  -->
+                                                                    <span ng-click="getTestId(x.trackid)" > Start Test</span>
+                                                                    <!-- <span ng-click="review(x)" ng-if="checkIsOpenButton('save',x)"> Review</span> -->
+                                          
+                                                              </div>
+                                                              
+                                                              <div ng-if="x.is_attend_test"  class="info">
+                                                                  <!-- {{x.trackid}} -->
+                                                                  <!-- <span ng-click="review(x)" ng-if="checkIsOpenButton('save',x)"> Review</span> -->
+                                                                  <p><span style="line-height: 0px;line-height: 0px; position: relative; right: 31px;top: 15px;" ng-click="getTestId(x.trackid,x)" > Start Test</span> <span   style="line-height: 0px;    line-height: 0px; position: relative;left: 37px;"  ng-click="review(x.trackid,x)" > Results</span></p> 
+                                                             </div>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                        <!-- <div class="col-md-12" >
+                                            <ul>
+                                                <li ng-repeat="x in post" > <span style="line-height: 23px;font-size: 15px;">Test Name:</span>
+                                                    <b  style="font-size: 15px;">
+                                                         {{x.title}}
+                                                        </b>
+                                                    <div class="box-footer ">
+                                                        <div class="pull-right">
+                                                            <button ng-click="getTestId(x.trackid)" class="btn btn-info btn-md btnclr " > Start Test</button>
+                                                            <button ng-click="review(x)" class="btn btn-success btn-md testwindow " ng-if="checkIsOpenButton('save',x)"> Review</button>
+                                                            <button ng-click="resume(x)" class="btn btn-danger btn-md testwindow" ng-if="checkIsOpenButton('pause',x)"> Resume</button>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div ng-show="loader">
+            <center><img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif" /></center> 
+        </div>
+        
+</div>
+</div>
+<style>
+    .nav-tabs>li>a {
+        cursor: pointer !important;
+    }
+    .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+        border-bottom: 3px solid #5e6db3 !important;
+    }
+    blinking{
+    animation:blinkingText 0.8s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: #000;    }
+    49%{    color: transparent; }
+    50%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #000;    }
+}
+.testtitle{
+    position: relative;
+    bottom: 120px;
+    right: 23px;
+    color: #005166;
+    font-weight: bold;
+    font-size: 15px;
+}
+</style>

@@ -1,0 +1,218 @@
+<style>
+table {
+	width: 49% !important;
+	margin:0 auto;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+	background-color: #d2d6de !important;
+}
+@media (max-width: 767px){
+.table {
+    width: 100% !important;
+    border: none;
+}
+}
+@media (max-width: 980px) and (min-width: 768px){
+.table {
+    width: 100% !important;
+    border: none;
+}
+}
+h3 {
+	text-align: center;
+}
+h1 {
+	border-bottom-style: double;
+	border-bottom-color: #096f40;
+	border-bottom-width: 6px;
+	padding: 10px;
+	text-align: center;
+}
+p {
+	line-height: 30px;
+	position: relative;
+	bottom: 10px;
+	text-align: center;
+}
+.text {
+	background: white;
+	padding: 20px;
+	position: relative;
+	top: 20px;
+	width: 98%;
+	left: 16px;
+	box-shadow: 0px 1px 17px 0px darkgrey;
+	font-family: sans-serif;
+}
+#popup_this {
+	top: 50%;
+	left: 50%;
+	margin-top: -50px;
+	margin-left: -100px;
+	position: fixed;
+	background: #fff;
+	padding: 40px;
+	width: 40%;
+}
+.b-close {
+	position: absolute;
+	right: 0;
+	top: 0;
+	cursor: pointer;
+	color: #fff;
+	background: #30a5ff;
+	padding: 5px 10px;
+}
+.speaking_bg {
+	background: #096F40;
+	color: #FFF;
+}
+.bit_t {
+	font-size: 25px !important;
+}
+</style>
+<div ng-controller="coverCtrl" class="row" style="background: #ECF0F5; min-height: 677px;"> 
+  <!-- <div class="panel panel-body">
+        <div class="text">
+            <h1 style=" font-size: 36px;
+                        text-align: center;
+                        color: black;">AWA Section Instructions</h1>
+            <h3>2 Questions</h3>
+            <h3>60 Minutes</h3>
+            <p>2 essays, 30 minutes each The writing section of the GRE is meant to measure your analytical reasoning, organization,
+                and analysis skills. The two essays include an issue essay and an argument essay. There are no right or wrong answers
+                to the essay questions, and the essays will be read and scored by 2 (and possibly 3) readers. For more information
+                about the essay section, and for writing tips, go to the essay tutorial section.</p>
+                <center>         
+                    <button class="btn btn-primary btnclr  " ng-click="gosection()">Start</button>
+                </center>
+            </div>
+</div> -->
+  <div class="col-lg-12" id="main-content">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h1>Full Length Online Exam </h1>
+        <!--Table--> 
+        
+        <!--Table-->
+        <div class="row main-box">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="panel b-a">
+              <div class="panel-heading no-border lt text-center">
+                <div class="row">
+                  <div class="report_box">
+                    <div class="math_bg">
+                      <div class="big_t">Reading</div>
+                      (60 minutes)
+                      <hr>
+                      <p>3 sections, 40 items</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="panel b-a">
+              <div class="panel-heading no-border lt text-center">
+                <div class="row">
+                  <div class="report_box">
+                    <div class="bg-aqua">
+                      <div class="big_t">Listening</div>
+                      (60 minutes)
+                      <hr>
+                      <p>4 sections, 40 items</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="panel b-a">
+              <div class="panel-heading no-border lt text-center">
+                <div class="row">
+                  <div class="report_box">
+                    <div class="verbal_bg">
+                      <div class="big_t">Writing</div>
+                      (60 minutes)
+                      <hr>
+                      <p>2 tasks</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="panel b-a">
+              <div class="panel-heading no-border lt text-center">
+                <div class="row">
+                  <div class="report_box">
+                    <div class="speaking_bg">
+                      <div class="big_t">Speaking</div>
+                      (11-14 minutes)
+                      <hr>
+                      <p>3 part one-on-one conversation</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<!--          <div class="col-md-3"></div>-->          
+
+			<table class="table table-striped w-auto">
+            <!--Table head-->
+            <thead>
+              <tr>
+                <th>IELTS Test Component</th>
+                <th>Duration</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <!--Table head--> 
+            <!--Table body-->
+            <tbody>
+              <tr>
+                <th scope="row">Reading</th>
+                <td>60 minutes</td>
+                <td>3 sections, 40 items</td>
+              </tr>
+              <tr>
+                <th scope="row">Listening</th>
+                <td>60 minutes</td>
+                <td>4 sections, 40 items</td>
+              </tr>
+              
+              <tr class="table-info">
+                <th scope="row">Writing</th>
+                <td>60 minutes</td>
+                <td>2 tasks</td>
+              </tr>
+              <tr>
+                <th scope="row">Speaking</th>
+                <td>11-14 minutes</td>
+                <td>3 part one-on-one conversation</td>
+              </tr>
+            </tbody>
+            <!--Table body-->
+          </table>
+        </div></div>
+        <center>
+          <button ng-click="gosection()" class="btn btn-primary">Start Exam</button>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.big_t {
+	font-size: 30px;
+	padding: 10px;
+}
+</style>

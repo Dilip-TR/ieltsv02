@@ -1,0 +1,183 @@
+<div class="bg">
+    <div class="region region-content">
+       <article data-history-node-id="10205" role="article" about="/ielts-recent-actual-test-answers-vol-5-listening-practice-test-1">
+          <div class="container">
+             <div class="testing listening-page">
+                <div class="lp-left">
+                   <div class="split-left cyan">
+                      <!-- <div class="player-listening player-test">
+                         <div class="container" style="height: 50px;">
+                            <div class="player">
+                               <div class="audio green-audio-player">
+                                  <div class="loading">
+                                     <div class="spinner"></div>
+                                  </div>
+                                  <div class="play-pause-btn">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24">
+                                        <path fill="#566574" fill-rule="evenodd" d="M18 12L0 24V0" class="play-pause-icon" id="playPause"/>
+                                     </svg>
+                                  </div>
+                                  <div class="controls">
+                                     <span class="current-time">0:00</span>
+                                     <div class="slider" data-direction="horizontal">
+                                        <div class="progress">
+                                           <div class="pin" id="progress-pin" data-method="rewind"></div>
+                                        </div>
+                                     </div>
+                                     <span class="total-time">0:00</span>
+                                  </div>
+                                  <div class="volume">
+                                     <div class="volume-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                           <path fill="#566574" fill-rule="evenodd" d="M14.667 0v2.747c3.853 1.146 6.666 4.72 6.666 8.946 0 4.227-2.813 7.787-6.666 8.934v2.76C20 22.173 24 17.4 24 11.693 24 5.987 20 1.213 14.667 0zM18 11.693c0-2.36-1.333-4.386-3.333-5.373v10.707c2-.947 3.333-2.987 3.333-5.334zm-18-4v8h5.333L12 22.36V1.027L5.333 7.693H0z" id="speaker"/>
+                                        </svg>
+                                     </div>
+                                     <div class="volume-controls hidden">
+                                        <div class="slider" data-direction="vertical">
+                                           <div class="progress">
+                                              <div class="pin" id="volume-pin" data-method="changeVolume"></div>
+                                           </div>
+                                        </div>
+                                     </div>
+                                  </div>
+                                  <audio crossorigin>
+                                     <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/355309/Swing_Jazz_Drum.mp3" type="audio/mpeg">
+                                  </audio>
+                               </div>
+                            </div>
+                         </div>
+                      </div> -->
+                      <div class="sec-content-1 ">
+                         <div class="question question-1">
+                            <div ng-repeat="que in listeningData.lesioning[actpara].questions">
+                                <!-- {{que}} -->
+                                <span ng-bind-html="que.quetion"></span>
+                                <div ng-repeat="options in que.options">
+                                   
+                                     <!-- <span> correct</span>
+                                     <span> Wrong</span> -->
+                                      &nbsp; &nbsp;  <span style="position: relative;bottom: 15px; left: 8px;" bind-unsafe-html="options.name"></span>
+                                     
+                               </div>
+                          </div>
+                         </div>
+                      </div>
+                      
+                   </div>
+                </div>
+                <div class="lp-right">
+                   <div class="box-ads hidden-sm hidden-xs"> 
+                      <div class="pagination">
+                          <ul>
+                              <li ng-class="prevPageDisabled()" >
+                                  <button class="btn btn-info btn-md btnclr" ng-click="prevQua()" ng-disabled="actpara == 0">Prev</button>
+                                  <span ng-bind-html="tesss"> </span>
+                              </li>
+                              <!-- ng-class="{active: n == currentPage}" -->
+                              <li> 
+                                  <button class="btn btn-info btn-md btnclr" ng-click="nextQua()" ng-if="readingLength != actpara+1">Next</button>
+                
+                                  <button class="btn btn-warning btn-solution" ng-click="loadNewParag()" ng-if="readingLength == actpara+1">Submit</button>
+                              </li>
+                          </ul>
+                      </div>
+                   </div>
+                   <div id="qp-afix" class="affix-top">
+                      <div class="reading-footer cyan ">
+                         <div class="question-panel">
+                            <div class="qp-caption"> <span><em></em> Question Pallete</span></div>
+                            
+
+                          <div  class="qp-items" tabindex="1" style="overflow: hidden; outline: none;">
+                              <span ng-repeat="lis in listeningData.lesioning">
+                                  <span ng-repeat="que in lis.questions">
+                                    <!-- {{que.options}} -->
+
+                                     <li ng-repeat="opt1 in que.options" class="qp-item qp-item-1  liCount"   ng-click="goToSelect($parent.$parent.$index,$event)" class="qp-item qp-item-1  liCount"   ng-click="goToSelect($parent.$parent.$index,$event)"   ng-style="opt1.user_aws && {'background-color':'#00a65a','color':'white','border':'1px solid #00a65a'} || {'background-color': 'white','color':'black'}" > -</li>  
+                                   
+                                         
+                                  </span>
+                              </span>
+                            </div>
+                           
+                            <div class="qp-note"> <span><em></em>Answered </span> <span><em class="unanswered"></em>Unanswered </span></div>
+                         </div>
+                         <div class="rf-button-wrap"> 
+                            <a class="rf-button hidden-lg hidden-md hidden-sm rf-button-pallete"> 
+                            <span class="icon-pallete"></span> Question Pallete </a> 
+                            <button type="button" class="btn btn-default">Exit</button>
+                            <button type="button" class="btn btn-default">Solution</button>
+                            <button type="button" class="btn btn-default">Submit</button>
+                         </div>
+                         <div class="rf-time">
+                            <div class="icon-time"></div>
+                            <input type="hidden" value="40" class="innertimmer"> <span id="stopwatch">39:27</span>
+                         </div>
+                         <div class="clearfix"></div>
+                      </div>
+                   </div>
+                   <div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 8px; z-index: 99; cursor: default; position: absolute; top: 350px; left: 352px; height: 200px; display: none;">
+                      <div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 6px; height: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div>
+                   </div>
+                   <div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 8px; z-index: 99; top: 542px; left: 30px; position: absolute; cursor: default; display: none;">
+                      <div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 6px; width: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div>
+                   </div>
+                </div>
+                <div class="clearfix"></div>
+             </div>
+          </div>
+          <input type="hidden" value="listening" class="question-type"><input type="hidden" value="10205" class="get-qid"> 
+       </article>
+    </div>
+    <div id="cboxOverlay" style="display: none;"></div>
+    <div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;">
+       <div id="cboxWrapper">
+          <div>
+             <div id="cboxTopLeft" style="float: left;"></div>
+             <div id="cboxTopCenter" style="float: left;"></div>
+             <div id="cboxTopRight" style="float: left;"></div>
+          </div>
+          <div style="clear: left;">
+             <div id="cboxMiddleLeft" style="float: left;"></div>
+             <div id="cboxContent" style="float: left;">
+                <div id="cboxTitle" style="float: left;"></div>
+                <div id="cboxCurrent" style="float: left;"></div>
+                <button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button type="button" id="cboxSlideshow"></button>
+                <div id="cboxLoadingOverlay" style="float: left;"></div>
+                <div id="cboxLoadingGraphic" style="float: left;"></div>
+             </div>
+             <div id="cboxMiddleRight" style="float: left;"></div>
+          </div>
+          <div style="clear: left;">
+             <div id="cboxBottomLeft" style="float: left;"></div>
+             <div id="cboxBottomCenter" style="float: left;"></div>
+             <div id="cboxBottomRight" style="float: left;"></div>
+          </div>
+       </div>
+       <div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div>
+    </div>
+ </div>
+ <style>
+   table,tr,td{
+            border: 1px solid black !important ;
+           
+        }
+        td{
+          width: 500px;
+        }
+        table{
+            margin: -18px 0 0 0;
+        }
+        .number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #1E4768;
+            font-size: 14px;
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            float: left;
+        }
+ </style>

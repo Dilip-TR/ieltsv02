@@ -1,0 +1,247 @@
+<div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 testing listening-page">
+          {{listeningData.lesioning[actpara].paragraph}}
+            <div class="player-listening player-test" style="height: 100px;background: black;">
+                    <div id="waveform"><span ng-if="showPlayButton == false" style="color:white">Loading please wait.... click play button to start test </span></div>
+                        <i ng-if="showPlayButton" ng-click="playTime();" onclick="wavesurfer.playPause()" style="position: relative;
+                        bottom: 68px;
+                        left: 19px;color:white;font-size: 30px;" class="fa fa-play-circle"></i>
+                        <!--<p class="row">
+                        <div class="col-xs-1">
+                          <i class="glyphicon glyphicon-zoom-in"></i>
+                        </div>
+                        <div class="col-xs-10">
+                          <input id="slider" type="range" min="1" max="200" value="1" style="width: 100%" />
+                        </div>
+                        <div class="col-xs-1">
+                          <i class="glyphicon glyphicon-zoom-out"></i>
+                        </div>
+                        </p> -->
+              </div>
+      </div>
+    </div>
+    <br><br>
+    <br><br><br><br><br><br>
+    <div class="row">
+      <div class="col-md-8">
+          <div class="sec-content-1 ">
+              <div class="question question-1">
+                 <div ng-repeat="que in listeningData.lesioning[actpara].questions">
+                     <!-- {{que}} -->
+                     <span ng-bind-html="que.quetion"></span>
+                     <div ng-repeat="options in que.options">
+                        
+                          <!-- <span> correct</span>
+                          <span> Wrong</span> -->
+                           &nbsp; &nbsp;  <span style="position: relative;bottom: 15px; left: 8px;" bind-unsafe-html="options.name"></span>
+                          
+                    </div>
+               </div>
+              </div>
+           </div>
+        </div>
+      <div class="col-md-4 lp-right">
+           <div id="qp-afix" class="affix">
+                <div class="pagination pull-right">
+                        <ul>
+                            <li ng-class="prevPageDisabled()" >
+                                <button class="btn btn-info btn-md btnclr" ng-click="prevQua()" ng-disabled="actpara == 0">Prev</button>
+                                <span ng-bind-html="tesss"> </span>
+                            </li>
+                            <!-- ng-class="{active: n == currentPage}" -->
+                            <li> 
+                                <button class="btn btn-info btn-md btnclr" ng-click="nextQua()" ng-if="readingLength != actpara+1">Next</button>
+              
+                                <button class="btn btn-warning btn-solution" ng-click="loadNewParag()" ng-if="readingLength == actpara+1">Submit</button>
+                            </li>
+                        </ul>
+                    </div>
+              <div class="reading-footer cyan ">
+                 <div class="question-panel">
+                    <div class="qp-caption"> <span><em></em> Questions</span></div>
+                    
+
+                  <div tabindex="1">
+                      <span ng-repeat="lis in listeningData.lesioning">
+                          <span ng-repeat="que in lis.questions">
+                            <!-- {{que.options}} -->
+
+                             <li ng-repeat="opt1 in que.options" class="qp-item qp-item-1  liCount"   ng-click="goToSelect($parent.$parent.$index,$event)" class="qp-item qp-item-1  liCount"   ng-click="goToSelect($parent.$parent.$index,$event)"   ng-style="opt1.user_aws && {'background-color':'#00a65a','color':'white','border':'1px solid #00a65a'} || {'background-color': 'white','color':'black'}" > -</li>  
+                           
+                                 
+                          </span>
+                      </span>
+                    </div>
+                   
+                    <div class="qp-note"> <span><em></em>Answered </span> <span><em class="unanswered"></em>Unanswered </span></div>
+                 </div>
+                 <div class="rf-button-wrap" style="position: relative;right: 25px;"> 
+                  
+                    <button type="button" class="btn btn-default exit">Exit</button>
+                    <button type="button" class="btn btn-default solution">Review</button>
+                  
+                 </div>
+                 <div class="rf-time">
+                    <!-- <div class="icon-time"></div> -->
+                   
+                    <span id="stopwatch">{{listeningData.totalReadingTime | secondsToTime}}</span>
+                 </div>
+                 <div class="clearfix"></div>
+              </div>
+           </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<script>
+        var wavesurfer = WaveSurfer.create({
+          container: '#waveform',
+          waveColor: 'white',
+          progressColor: 'orange'
+        });
+        var slider = document.querySelector('#slider');
+        slider.oninput = function () {
+          var zoomLevel = Number(slider.value);
+          wavesurfer.zoom(zoomLevel);
+        };
+        </script>
+<style>
+    canvas {
+        width: 1280px !important;
+        height: 100px !important;
+        left: 35px !important;
+    }
+    wave {
+        position: absolute;
+        z-index: 2;
+        left: 35px !important;
+        border-right: 1px solid #00a65a !important;
+        height: 100px !important;
+    }
+    .listening-page .player-listening {
+        height: 50px;
+        background-color: #d6f0f4;
+        position: fixed;
+        z-index: 99;
+        /* top: 50px; */
+        width: 100%;
+        left: 0px;
+        right: 0px;
+}
+.affix {
+    position: fixed;
+    top: 100px !important;
+    /* width: 360px !important; */
+    background: #204d74 !important;
+    min-height: 593px !important;
+    height: auto;
+}
+
+    .btn-default {
+        height: 34px !important;
+    }
+    .btnclr {
+        background-color: #f39c12 !important;
+        color: white !important;
+}
+    .inputstyle1 {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        width: 20%;
+        border: 1px solid gray;
+    }
+    /* .side {
+        background: #1e4768;
+        min-height: 661px;
+        height: auto;
+        width: 390px;
+        position: absolute;
+        top: 50px;
+        right: 0px;
+        bottom: 0px;
+        background-color: #284664;
+        padding: 30px;
+        float: right;
+        z-index: 99;
+    } */
+    .listening-page .lp-right {
+    width: 390px;
+    position: absolute;
+    /* top: 50px; */
+    right: 0px;
+    bottom: 0px;
+    background-color: #284664;
+    padding: 30px;
+    float: right;
+    z-index: 99;
+}
+     #stopwatch {
+            background-color: #000;
+            color: #fff;
+            font-weight: bold;
+            padding: 8px 14px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 21px;
+            top: 40px;
+            position: relative;
+      }
+    table,tr,td{
+             border: 1px solid black !important ;
+            
+         }
+         td{
+           width: 500px;
+         }
+         table{
+             margin: -18px 0 0 0;
+         }
+         .number {
+             display: inline-block;
+             width: 30px;
+             height: 30px;
+             border-radius: 50%;
+             background-color: #204d74;
+             font-size: 14px;
+             text-align: center;
+             line-height: 30px;
+             color: #fff;
+             /* float: left; */
+         }
+         input:focus { 
+            background: yellow;
+            border: 1px solid blueviolet;
+}
+.inputstyle{
+	/* border: 0 !important;
+	border-bottom: 1px solid black !important; */
+	text-align: center;
+	font-weight: bold;
+	/* outline: none; */
+	background: white;
+	color:green;
+	width: 10%;
+	height: 30px;
+	border: 1px solid #777;
+	text-transform: uppercase;
+}
+.inputstyle1{
+	/* border: 0 !important;
+	border-bottom: 1px solid black !important; */
+	text-align: center;
+	font-weight: bold;
+	/* outline: none; */
+	background: white;
+	color:green;	
+	width: 20%;
+	height: 30px;
+	border: 1px solid #777;
+	text-transform: uppercase;
+}
+
+  </style>

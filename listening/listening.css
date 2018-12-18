@@ -1,0 +1,266 @@
+.bg {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #f8ffae;
+	background: -webkit-linear-gradient(-65deg, #f8ffae, #f8ffae);
+	background: linear-gradient(-65deg, #f8ffae, #f8ffae);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+table tbody tr td {
+	padding: 10px !important;
+}
+.table {
+	border: none;
+}
+.table table {
+	width: 100%;
+}
+.table thead {
+	background-color: #284664;
+}
+.field--name-field-essay-sample .table thead tr th, .field--name-field-image-writing-task .table thead tr th {
+	color: #000;
+}
+.table thead tr th {
+	color: #fff;
+	font-family: sans-serif;
+	font-size: 15px;
+	padding: 15px 0px 15px 20px;
+}
+.table tbody tr td {
+	padding: 15px 0px 15px 20px;
+	font-size: 15px;
+}
+.table tbody tr:nth-child(odd) {
+	background-color: #f5f5f5;
+}
+.reading-box {
+	background-color: #fff;
+	/* position: fixed; */
+	bottom: 140px;
+	top: 50px;
+	left: 0px;
+	right: 0px;
+}
+.reading-footer .rf-time {
+	float: right;
+	/* text-align: center; */
+	position: relative;
+	right: 30px;
+	bottom: 62px;
+}
+.reading-footer .rf-time .icon-time {
+	background: url("https://ieltsonlinetests.com/themes/iot/images/icon_time1.png") no-repeat center center;
+	width: 52px;
+	height: 56px;
+	margin: 10px auto 0px auto;
+}
+.reading-footer .rf-time span {
+	font-size: 32px;
+	font-weight: 300;
+	color: #fff;
+}
+
+@media screen and (min-width:500px) {
+.reading-footer .rf-time {
+	float: left;
+	margin: 5px 0px 0px 0px;
+}
+.reading-footer .rf-time .icon-time {
+	display: none;
+}
+.reading-footer .rf-time span {
+	display: block;
+	margin: 50px 0px 0px 50px;
+}
+}
+.reading-footer .rf-button-wrap {
+	float: right;
+	max-width: 240px;
+	margin-top: 33px;
+	margin-right: 5px;
+}
+
+@media screen and (max-width:991px) {
+.reading-footer .rf-button-wrap {
+	margin-top: -5px;
+	margin-left: 10px;
+	max-width: 210px;
+	float:left;
+}
+}
+.reading-footer .rf-button-wrap .rf-button {
+	width: 110px;
+	height: 50px;
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.9);
+	padding: 0px 7px 0px 7px;
+	margin: 10px 0px 0px 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	float: left;
+	color: #327846;
+	font-size: 14px;
+	font-weight: 700;
+	font-family: sans-serif;
+	text-align: left;
+	line-height: 15px;
+	-moz-transition: all ease 0.2s;
+	-o-transition: all ease 0.2s;
+	-webkit-transition: all ease 0.2s;
+	transition: all ease 0.2s;
+	cursor: pointer;
+}
+.reading-footer .rf-button-wrap .rf-button:hover {
+	background-color: white;
+}
+
+@media screen and (max-width:991px) {
+.reading-footer .rf-button-wrap .rf-button {
+	font-size: 12px;
+	height: 37px;
+	margin: 5px 0px 0px 5px;
+	width: 100px;
+}
+}
+.reading-footer .rf-button-wrap .rf-button span {
+	width: 30px;
+	display: block;
+	height: 25px;
+	background-repeat: no-repeat;
+	margin: 0px 6px 0px 0px;
+	background-position: center center;
+}
+.reading-footer .rf-button-wrap .rf-button span.icon-ask {
+	background-image: url(/themes/iot/css/../images/icon_ask2.png);
+}
+.reading-footer .rf-button-wrap .rf-button span.icon-review {
+	background-image: url(/themes/iot/css/../images/icon_review1.png);
+}
+.reading-footer .rf-button-wrap .rf-button span.icon-solution {
+	background-image: url(/themes/iot/css/../images/icon_lego2.png);
+}
+.reading-footer .rf-button-wrap .rf-button span.icon-submit {
+	background-image: url(/themes/iot/css/../images/icon_submit.png);
+}
+.reading-footer .rf-button-wrap .rf-button span.icon-pallete {
+	background-image: url(/themes/iot/css/../images/icon_pallete1.png);
+}
+.reading-footer .question-panel {
+	/*float: left;*/
+	max-width: 750px;
+	position: relative;
+	height: 200px;
+	margin-left:20px;
+}
+.reading-footer .question-panel .qp-items {
+	height: 90px;
+	overflow: auto;
+}
+.reading-footer .question-panel .qp-caption span {
+	display: inline-block;
+	font-size: 20px;
+	font-weight: 700;
+	color: #fff;
+	font-family: sans-serif;
+}
+.reading-footer .question-panel .qp-caption span em {
+	float: left;
+	background: url("/themes/iot/css/../images/icon_pallete.png") no-repeat center center;
+	width: 20px;
+	height: 20px;
+	margin: 5px 5px 0px 0px;
+}
+.reading-footer .question-panel .qp-item {
+	/*display: inline-block;
+	margin: 10px 6px 0px 5px;
+	float: left;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	 font-weight: 700; 
+	font-family: sans-serif;
+	border-radius: 50%;
+	text-align: center;
+	float: left;
+	color: #fff;
+	background-color: #265a35;*/
+	color: #072844;
+	float: left;
+	padding: 0px 0px;
+	margin: 0 4px 6px 0;
+	text-decoration: none;
+	background: #FFF;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	cursor: pointer;
+	list-style: none;
+	width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+}
+.reading-footer .question-panel .qp-item:hover {
+	border: 1px solid #666;
+	background-color: #072844 !important;
+	color:#fff !important;
+
+}
+.reading-footer .question-panel .qp-item.qp-item-unanswered {
+	background-color: #327846;
+}
+.reading-footer .question-panel .qp-item.qp-item-large {
+	font-size: 10px;
+	line-height: 13px;
+	padding-top: 2px;
+}
+.reading-footer .question-panel .qp-item.qp-item-large em {
+	display: block;
+	width: 80%;
+	margin: 0px auto;
+	height: 1px;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+.reading-footer .question-panel .qp-note {
+	position: absolute;
+	top: 0px;
+	right: 9px;
+}
+.reading-footer .question-panel .qp-note span {
+	display: inline-block;
+	margin: 0px 0px 0px 20px;
+	color: #fff;
+	font-size: 14px;
+}
+.reading-footer .question-panel .qp-note span em {
+	float: left;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	margin: 2px 5px 0px 0px;
+	background-color: #265a35;
+}
+.reading-footer .question-panel .qp-note span em.unanswered {
+	background-color: #327846;
+}
+.reading-footer.cyan .question-panel .qp-item {
+	background-color: #268695;
+}
+.reading-footer.cyan .question-panel .qp-item.qp-item-unanswered {
+	background-color: white;
+	color: black;
+}
+.reading-footer.cyan .question-panel .qp-note span em {
+	background-color: #00a65a;
+}
+.reading-footer.cyan .question-panel .qp-note span em.unanswered {
+	background-color: white;
+}
+.reading-footer.cyan .rf-button-wrap .rf-button {
+	color: #32b3c7;
+}

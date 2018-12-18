@@ -1,0 +1,541 @@
+<div class="">
+  <div class="col-md-12" >
+    <div ng-hide="loader">
+      <div>
+        <div class="panel panel-body" style="padding:0px; background: transparent;height: 545px;">
+          <div>
+            <div class="panel" style="background: transparent">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="pull-left">
+                    <div class="pagination">
+                      <ul>
+                        <li>
+                          <button type="button" ng-click="exit()" class="btn btn-primary">Exit</button>
+                        </li>
+                        <!-- <li><button type="button" class="btn btn-primary">Pause</button> </li> --> 
+                        <!-- <li><button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Review</button></li> -->
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="pull-right">
+                    <div class="pagination">
+                      <ul>
+                        <li ng-class="prevPageDisabled()" >
+                          <button style="background-color: #204d74;" class="btn btn-info btn-md " ng-click="prevQua()" ng-disabled="actpara == 0">Prev</button>
+                          <span ng-bind-html="tesss"> </span> </li>
+                        <!-- ng-class="{active: n == currentPage}" -->
+                        <li>
+                          <button  style="background-color: #204d74;" class="btn btn-info btn-md " ng-click="nextQua()" ng-if="readingLength != actpara+1">Next</button>
+                          <button class="btn btn-warning btn-solution" ng-click="loadNewParag()" ng-if="readingLength == actpara+1">Continue</button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="splitter-container">
+              <div class="left" > 
+                <!-- {{actpara}}xx
+             --> 
+                <!-- {{readingdata.reading[actpara].questions | json}} --> 
+                <!-- {{readingdata}} -->
+                <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 points_table_scrollbar get_first_scrollbar" style="height: 416px; overflow-x: hidden;">
+                  <div class="col-md-12" style="height: 360px; padding:0px;" dock="'bottom'"> 
+                    <!-- {{actpara}}
+                    {{readingdata.reading[actpara].questions[actqua].solution}} -->
+                    <div bind-unsafe-html="readingdata.reading[actpara].questions[actqua].solution"> 
+                      <!-- {{readingdata.reading[actpara].paragaph}}   --> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="right">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 points_table_scrollbar" style="height: 416px;overflow-x: hidden;">
+                  <div >
+                    <div class="col-md-12" style="padding:0px;">
+                      <div ng-repeat="que in readingdata.reading[actpara].questions"> 
+                        <!-- {{que}} --> 
+                        <span ng-bind-html="que.quetion"></span>
+                        <div ng-repeat="options in que.options"> <span ng-if="getIsCorrectResult(options.is_answer,options.user_aws)"> <img style="width:25px;height: 25px;    position: relative;top: 10px;" src="assets/tick.png"/></span> <span ng-if="!getIsCorrectResult(options.is_answer,options.user_aws)"> <img style="width:25px;height: 25px;    position: relative;top: 10px;" src="assets/wrong.png"/></span> &nbsp; &nbsp; <span style="position: relative;bottom: 15px; left: 30px;" bind-unsafe-html="options.name"></span> <span></span><br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reading-footer">
+          <div class="controller-section">
+            <div class="controller-inner">
+              <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                <div class="question-label">Questions :</div>
+                <ul class="question-buttons points_table_scrollbar" role="navigation" aria-label="Question navigation">
+                  <span ng-repeat="para in readingdata.reading"> <span ng-repeat="que in para.questions">
+                  <li ng-click="goToSelect($parent.$parent.$index,$event)" ng-repeat="opt in que.options" class="liCount" ng-style="opt.user_aws && {'background-color':'#00a65a','color':'white','border':'1px solid #00a65a'} || {'background-color': 'white'}" >-</li>
+                  </span> </span>
+                </ul>
+              </div>
+              
+              <!-- <div class="controller-button">
+                                    <a ng-click="exit()" class="btn btn-success" data-toggle="modal">Exit</a>
+                                    <a class="btn btn-info" data-toggle="modal">Review</a>
+                                </div> -->
+              <div class="col-lg-1 col-md-1 col-sm-2 col-xs-12">
+                <div class="legend">
+                  <div class="aq"></div>
+                  <div class="uaq"></div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="clock pull-right"> 
+                  <!-- <span id="stopwatch"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ readingdata.totalReadingTime | secondsToTime}}</span> --> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-show="loader">
+      <center>
+        <img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif" />
+      </center>
+    </div>
+  </div>
+</div>
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-auto modal-profile" style=" background: white;">
+    <div class=""> <i class="ion-android-close close-modal" data-dismiss="modal" aria-label="Close"> </i> <br>
+      <h4 style="text-align: center"class="modal-caption"> Review your answers</h4>
+      <div class="review-content" style="padding: 3px 20px 21px 21px;" >
+        <div class="rc-row"> 
+          <!-- <div class="rc-col"  >
+                                <div class="rc-item" >
+                                        {{options.user_aws}}
+                                   <span>Q1:</span>
+                                   <p id="txtq1">  {{options.user_aws}}</p>
+                                </div>
+                             </div> -->
+          
+          <div ng-repeat="para in readingdata.reading"> <span ng-repeat="que in para.questions">
+            <div class="rc-col liReview"  ng-repeat="opt in que.options"  >
+              <div class="rc-item" >Q<span class="addIndex" id="txtq1">-</span> {{opt.user_aws}}</div>
+            </div>
+            </span> </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="bp-control text-center"> <br>
+          <button class="btn btn-primary" data-dismiss="modal" aria-label="Close"> Close </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.review{
+  background-color: red;
+  color: white;
+}
+.review1{
+  background-color: gold;
+  color: white;
+}
+input[type="text"]:disabled {
+cursor: no-drop;
+background: #F5F5F5;
+color: black;
+
+}
+input[type="text"] {
+cursor: no-drop;
+background: #F5F5F5;
+color: black;
+
+
+}
+num{
+   background: red;
+}
+table,tr,td{
+  border: 1px solid black !important ;
+ 
+}
+table{
+
+}
+input[type="text"]:focus{
+  background: yellow;
+}
+.rc-row {
+  display: flex;
+align-items: stretch;
+flex-wrap: wrap;
+}
+.rc-col{
+  border: 1px solid #ccc;
+float: left;
+width: 25%;
+margin: -1px 0px 0px -1px;
+}
+.rc-item{
+  min-height: 50px;
+padding: 10px;
+line-height: 30px;
+}
+.greenClor{
+  background-color: #17af69;
+  border: 1px solid #17af69;
+  color: white;
+} 
+.reading-footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 15px;
+  min-height: 120px;
+  height: auto;
+  background-color: #072844;
+}
+ui li{
+  float: left; 
+  list-style: none;
+  padding: 5px;
+}
+.mycls{
+height: 30px;
+width: 30px;
+border-radius: 50%;
+background: #0F6DB5;
+color: white;
+padding: 5px 2px 3px 11px;
+cursor: pointer;
+display: inline-block;
+float: left;
+}
+h3{
+  font-style: italic !important;
+}
+p {
+  font-size: 15px !important;
+  line-height: 25px;
+  text-align: left;
+}
+img {
+  height: 262px;
+  width: 100%;
+}
+@media screen and (min-width: 1000px){
+.controller-section {
+  width: 100%;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+}
+
+/* @media screen and (min-width: 1000px) {
+.controller-inner {
+  max-width: 1140px;
+  margin: auto;
+}
+} */
+.controller-upper {
+  width: 100%;
+  overflow: auto;
+  padding: 3px;
+}
+@media screen and (min-width: 1000px) {
+.question-label {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 2em;
+}
+}
+.question-label {
+  float: left;
+  display: none;
+  color: white;
+}
+.question-buttons {
+  float: left;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 8px;
+  left: 10px;
+  width: 83%;
+  /* line-height: 105px; */
+  height: 100px;
+  overflow-y: scroll;
+}
+a {
+  color: black !important;
+}
+@media screen and (min-width: 1000px) {
+.question-buttons li {
+  display: inline;
+  float: left;
+  border: 1px solid #cacaca;
+  border-radius: 50%;
+}
+}
+@media screen and (min-width: 768px) {
+.question-buttons li {
+  width: 32px;
+  font-size: 14px;
+  line-height: 2em;
+  text-align: center;
+  background: #fff;
+  margin: 5px;
+}
+}
+.question-buttons li {
+  /*display: inline;
+  float: left;
+  border: 1px solid #cacaca;
+  border-radius: 50% !important;
+  text-align: center;
+  background: #fff;
+  color: black;
+  margin: 0 2px;
+  cursor: pointer;*/
+  
+  color: #072844;
+float: left;
+padding: 0px 0px;
+margin: 0 4px 6px 0;
+text-decoration: none;
+transition: background-color .3s;
+border: 1px solid #ddd;
+cursor: pointer;
+width: 28px;
+height: 28px;
+text-align: center;
+line-height: 28px;
+border-radius: 50%;
+}
+
+.question-buttons li:hover {
+border: 1px solid #666;
+background-color: #072844 !important;
+color: #fff;
+}
+
+@media screen and (min-width: 1000px) {
+.question-label {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 2em;
+}
+}
+.question-label {
+  float: left;
+}
+@media screen and (min-width: 1000px) {
+.controller-lower {
+  border-top: none;
+}
+}
+.controller-lower {
+  width: 100%;
+  padding: 12px;
+}
+@media screen and (min-width: 1000px) {
+.legend {
+  width: 110px;
+  float: left;
+}
+}   
+.legend {
+  font-size: .8em;
+  width: 90px;
+  float: left;
+}
+@media screen and (min-width: 1000px) {
+.aq {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #00a65a;
+  border: 1px solid #00a65a;
+  margin-bottom: 15px;
+}
+}
+.aq {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #00a65a;
+  border: 1px solid #00a65a;
+  margin-bottom: 15px;
+}
+.clock {
+  width: auto;
+  text-align: center;
+  line-height: 4.5em;
+}
+#stopwatch {
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-family: monospace;
+  font-size: 21px;
+}
+.controller-button {
+  width: auto;
+  float: right;
+  text-align: right;
+}
+@media screen and (min-width: 1000px) {
+.aq:after {
+  content: 'answered';
+  padding-left: 30px;
+  position: absolute;
+  margin-top: 3px;
+  font-size: 15px;
+}
+}
+.aq:after {
+  content: 'Answered';
+  padding-left: 20px;
+  position: absolute;
+  margin-top: -1px;
+  font-size: 15px;
+  color: white;
+}
+:after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media screen and (min-width: 1000px) {
+.uaq {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #999;
+}
+}
+.uaq {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #999;
+  font-size: 15px;
+}
+@media screen and (min-width: 1000px) {
+.uaq:after {
+  content: 'unanswered';
+  padding-left: 30px;
+  position: absolute;
+  margin-top: 3px;
+  font-size: 15px;
+}
+}
+.uaq:after {
+  content: 'Unanswered';
+  padding-left: 20px;
+  position: absolute;
+  margin-top: -1px;
+  color: white;
+}
+.number {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #204d74;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+  color: #fff;
+  float: left;
+}
+.number1 {
+  /* display: inline-block; */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: red;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+  color: #fff;
+ 
+}
+.num{
+  background-color: red;
+}
+.inputstyle{
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid;
+  text-align: center;
+  text-transform: uppercase;
+  color: green;
+  font-weight: bold;
+  width: 15%;
+  border: 1px solid gray;
+}
+.bg {
+  display: flex;
+justify-content: center;
+align-items: center;
+background: #f8ffae;
+background: -webkit-linear-gradient(-65deg, #0b7142, #f8ffae);
+background: linear-gradient(-65deg, #0b7142, #f8ffae);
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes spin {
+from {
+  transform: rotateZ(0);
+}
+to {
+  transform: rotateZ(1turn);
+}
+}
+@media (max-width:1200px) {
+.question-buttons {
+    width: 70%;
+}
+}
+@media (min-width:768px) and (max-width:980px) {
+
+}
+@media (max-width:767px) {
+.left{
+	width: 100% !important;
+}
+.splitter-container{
+	display: block !important;
+}
+.question-buttons {
+    width: 100%;
+}
+.reading-footer {
+    position: absolute;
+    bottom: -680px;
+}
+}
+
+
+/* .splitter-container { font-family:'Roboto'; color:#222; text-align:center; line-height:300px;} */
+
+</style>
+<script>
+                    $('.splitter-container').SplitterBar();
+                    $('.splitter-container2').SplitterBar();
+                  
+                </script> 

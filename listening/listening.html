@@ -1,0 +1,296 @@
+<div>
+  <div class="container-fluid">
+    <div ng-hide="loader">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 testing listening-page">
+          <div id="appendAudioPlayer" ></div>
+          <div ng-if="listeningData.lesioning[actpara].courrentime == 0"> <img src="assets/disable.png"> </div>
+          <div class="rf-time" ng-if="listeningData.lesioning[actpara].courrentime != 0"> 
+            <!-- <div class="icon-time"></div> --> 
+            <span class="ng-binding time">Audio will disabled <b style="color: red;">{{listeningData.lesioning[actpara].courrentime | secondsToTime}}</b></span> </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-lg-9 col-md-8 col-sm-8 col-xs-12">
+          <div class="sec-content-1 ">
+            <div class="question question-1">
+              <div ng-repeat="que in listeningData.lesioning[actpara].questions"> 
+                <!-- {{que}} --> 
+                <span ng-bind-html="que.quetion"></span>
+                <div ng-repeat="options in que.options"> 
+                  <!-- {{options}} --> 
+                  <!-- <span> correct</span>
+                                    <span> Wrong</span> --> 
+                  &nbsp; &nbsp; <span style="position: relative;bottom: 15px; left: 8px;" bind-unsafe-html="options.name"></span> {{options.is_answer}} </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 lp-right">
+          <div id="qp-afix" class="affix">
+            <div class="pagination">
+              <ul>
+                <li ng-class="prevPageDisabled()" >
+                  <button class="btn btn-info btn-md btnclr" ng-click="prevQua()" ng-disabled="actpara == 0">Prev</button>
+                  <span ng-bind-html="tesss"> </span> </li>
+                <!-- ng-class="{active: n == currentPage}" -->
+                <li>
+                  <button class="btn btn-info btn-md btnclr" ng-click="nextQua()" ng-if="readingLength != actpara+1">Next</button>
+                  <button class="btn btn-warning btn-solution" ng-click="loadNewParag()" ng-if="readingLength == actpara+1" ng-disabled="btndisable"><span ng-if="!btndisable">Submit</span><span ng-if="btndisable">Sending...</span> </button>
+                </li>
+              </ul>
+            </div>
+            <div class="reading-footer cyan ">
+              <div class="question-panel">
+                <div class="qp-caption"> <span><!--<em></em>--> Questions</span></div>
+                <div tabindex="1"> <span ng-repeat="lis in listeningData.lesioning"> <span ng-repeat="que in lis.questions"> 
+                  <!-- {{que.options}} -->
+                  <li ng-repeat="opt1 in que.options" class="qp-item qp-item-1  liCount"   ng-click="goToSelect($parent.$parent.$index,$event)" class="qp-item qp-item-1  liCount"   ng-click="goToSelect($parent.$parent.$index,$event)"   ng-style="opt1.user_aws && {'background-color':'#00a65a','color':'white','border':'1px solid #00a65a','cursor':'pointer'} || {'background-color': 'white','color':'black','cursor':'pointer'}" >
+                  -
+                  </li>
+                  </span> </span> </div>
+                <div class="qp-note"> <span><em></em>Answered </span> <span><em class="unanswered"></em>Unanswered </span></div>
+              </div>
+              <div class="rf-button-wrap">
+                <button type="button" class="btn btn-default exit">Exit</button>
+                <!-- <button type="button" class="btn btn-default solution">Review</button> -->
+              </div>
+              <div class="rf-time"> 
+                <!-- <div class="icon-time"></div> --> 
+                
+                <span id="stopwatch">{{listeningData.totalReadingTime | secondsToTime}}</span> </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-show="loader">
+      <center>
+        <img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif" />
+      </center>
+    </div>
+  </div>
+</div>
+<!-- <script>
+          var wavesurfer = WaveSurfer.create({
+            container: '#waveform',
+            waveColor: 'white',
+            progressColor: 'orange'
+          });
+          
+         
+          var slider = document.querySelector('#slider');
+          
+          slider.oninput = function () {
+            var zoomLevel = Number(slider.value);
+            wavesurfer.zoom(zoomLevel);
+          };
+          </script> -->
+<style>
+/* canvas {
+width: 1280px !important;
+height: 100px !important;
+left: 35px !important;
+}
+wave {
+position: absolute;
+z-index: 2;
+left: 35px !important;
+border-right: 1px solid #00a65a !important;
+height: 100px !important;
+} */
+.listening-page{
+	position: fixed;
+    background: #FFF;
+    padding: 4px 0 10px 0;
+    border-bottom: 2px solid #999;
+    z-index: 99;	
+}
+audio {
+width: 100%;
+}
+.time {
+    float: right;
+    position: relative;
+    margin: 10px 30px 0px 13px;
+    font-family: unset;
+    top: 0px;
+    font-weight: bold;
+}
+.listening-page .player-listening {
+height: 50px;
+background-color: #d6f0f4;
+position: fixed;
+z-index: 99;
+/* top: 50px; */
+width: 100%;
+left: 0px;
+right: 0px;
+}
+.affix {
+position: fixed;
+top: 110px !important;
+ width: 24%; 
+background: #204d74 !important;
+min-height: 593px !important;
+height: auto;
+right:5px;
+}
+.pagination{
+	display: block !important;
+    text-align: right;
+}
+.btn-default {
+height: 34px !important;
+}
+.btnclr {
+background-color: #f39c12 !important;
+color: white !important;
+}
+.inputstyle1 {
+text-align: center;
+text-transform: uppercase;
+font-weight: bold;
+width: 20%;
+border: 1px solid gray;
+}
+/* .side {
+background: #1e4768;
+min-height: 661px;
+height: auto;
+width: 390px;
+position: absolute;
+top: 50px;
+right: 0px;
+bottom: 0px;
+background-color: #284664;
+padding: 30px;
+float: right;
+z-index: 99;
+} */
+.listening-page .lp-right {
+width: 390px;
+position: absolute;
+/* top: 50px; */
+right: 0px;
+bottom: 0px;
+background-color: #284664;
+padding: 30px;
+float: right;
+z-index: 99;
+}
+#stopwatch {
+background-color: #000;
+color: #fff;
+font-weight: bold;
+padding: 8px 14px;
+border-radius: 5px;
+font-family: monospace;
+font-size: 21px;
+top: 40px;
+position: relative;
+}
+table,tr,td{
+border: 1px solid black !important ;
+
+}
+td{
+width: 500px;
+}
+table{
+margin: -18px 0 0 0;
+}
+.number {
+display: inline-block;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+background-color: #204d74;
+font-size: 14px;
+text-align: center;
+line-height: 30px;
+color: #fff;
+/* float: left; */
+}
+input:focus { 
+background: yellow;
+border: 1px solid blueviolet;
+}
+.inputstyle{
+/* border: 0 !important;
+border-bottom: 1px solid black !important; */
+text-align: center;
+font-weight: bold;
+/* outline: none; */
+background: white;
+color:green;
+width: 10%;
+height: 30px;
+border: 1px solid #777;
+text-transform: uppercase;
+}
+.inputstyle1{
+/* border: 0 !important;
+border-bottom: 1px solid black !important; */
+text-align: center;
+font-weight: bold;
+/* outline: none; */
+background: white;
+color:green;	
+width: 20%;
+height: 30px;
+border: 1px solid #777;
+text-transform: uppercase;
+}
+.qp-caption{
+	margin-bottom:15px;
+}
+
+@media (max-width:1200px) {
+.affix {
+    width: 33%;
+}
+}
+@media (min-width:768px) and (max-width:980px) {
+.affix {
+    width: 33%;
+}
+.reading-footer .question-panel .qp-note {
+    top: -20px !important;
+    right: 5px !important;
+}
+}
+@media (max-width:767px) {
+.affix {
+    position: relative;
+    top: 40px !important;
+    right: 0px;
+	width:100%;
+}
+.reading-footer .question-panel {
+    margin-left: 10px !important;
+}	
+.rf-button-wrap{
+	position:relative;
+}
+.reading-footer .rf-button-wrap {
+    float: left !important;
+}
+.reading-footer .rf-time {
+    float: left !important;
+    right: 120px !important;
+}
+.question {
+    bottom: 2px !important; 
+}
+}
+</style>

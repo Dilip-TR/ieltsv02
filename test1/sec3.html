@@ -1,0 +1,631 @@
+<style>
+    .expandcollapse-item {
+      overflow: hidden;
+    }
+    .expandcollapse-heading-collapsed {
+      cursor: pointer;
+      padding: 15px 20px;
+      position: relative;
+      /* z-index: 100000000; */
+      color: black; 
+      background-color: #CECECE;
+      width: 85%;
+      border: 1px solid white;
+      
+    }
+    .expandcollapse-item:first-of-type {
+      border-top:0px;
+    }
+    .expandcollapse-heading-collapsed p{
+      font-size: 16px;
+      font-weight: normal;
+      margin:0px;
+    } .expandcollapse-heading-expanded {
+      cursor: pointer;
+      z-index: 100000000;
+      padding: 15px 20px;
+      position: relative;
+      color: white; 
+      background-color: blue;
+      /* border: 1px solid blue; */
+      width:85%
+    }
+    
+    .expandcollapse-heading-expanded p{
+      font-size: 16px;
+      font-weight: bold;
+      margin:0px;
+    }
+    .expandcollapse-heading-collapsed > span,
+    .expandcollapse-heading-expanded > span {
+      position:absolute;
+      top: 25px;
+      right: 15px;
+      font-size: 20px;
+      line-height: 0px;
+    }
+    .expand-collapse-content {
+      padding: 8px;
+    } /*
+    animation:*/
+    .slideDown.ng-hide {
+      height:0;
+      transition:height 0.35s ease;
+      overflow:hidden;
+      position:relative;
+    }
+    
+    .slideDown {
+      /* height:141px; */
+      transition:height 0.35s ease;
+      overflow:hidden;
+      position:relative;
+    }
+    
+    .slideDown.ng-hide-remove,
+    .slideDown.ng-hide-add {
+      /* remember, the .hg-hide class is added to element
+      when the active class is added causing it to appear
+      as hidden. Therefore set the styling to display=block
+      so that the hide animation is visible */
+      display:block!important;
+    }
+    
+    
+    .slideDown.ng-hide-add {
+      animation-name: hide;
+      -webkit-animation-name: hide;  
+    
+      animation-duration: .5s; 
+      -webkit-animation-duration: .5s;
+    
+      animation-timing-function: ease-in;  
+      -webkit-animation-timing-function: ease-in;  
+    }
+    
+    .slideDown.ng-hide-remove {
+      animation-name: show;
+      -webkit-animation-name: show;  
+    
+      animation-duration: .5s; 
+      -webkit-animation-duration: .5s;
+    
+      animation-timing-function: ease-out;  
+      -webkit-animation-timing-function: ease-out;  
+    }
+</style>
+<div>
+  <div ng-hide="loader" style="background-color:#E7EAED"; class="container-fluid">
+      <div class="row" style="height: 102px; border-bottom: 1px solid #CECECE;">
+          <div class="row" style=" background: black;color: white;">
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-4">
+                  <p style="position: relative;top: 6px; left: 156px; ">
+                      <b>{{totalReadingTime | secondsToTime}}
+                          <span>Time Left</span>
+                      </b>
+                  </p>
+              </div>
+          </div>
+          <div class="row">
+              <div style="background-color:white;background-color: white;position: relative;    bottom: 9px;border-bottom: 1px solid #CECECE; z-index: 1023;" ;>
+                  <h4 style=" padding: 0px 1px 1px 23px;" ng-bind-html="quedata[part]['title']"></h4>
+                  <p style=" padding: 0px 1px 1px 23px;" ng-bind-html="quedata[part]['topInst']"></p>
+                  
+              </div>
+          </div>
+      </div>
+      <div class="row" style="position: relative; bottom: 18px;">
+        <div  class="splitter-container">
+          <div class="left">
+            <div  class="col-md-12 points_table_scrollbar "  style="background-color:white">
+        <!-- <div >
+            <div  class="col-md-12">
+                <p bind-unsafe-html="quedata[part]['paragraph']" class="paraalign"></p>
+            </div>
+        </div> -->
+        <div ng-if="data.question_type_id !=5">
+            <div  class="col-md-12">
+                <p bind-unsafe-html="quedata[part]['paragraph']" class="paraalign"></p>
+            </div>
+        </div>
+            
+        <div ng-repeat="data in quedata[part].quetions" ng-if="data.question_type_id ==5">
+         
+            <div  ng-if="data.question_type_id==5">
+              <!-- {{data.options}} -->
+              <div ng-repeat="left in data.options" >
+                  <!-- {{left}} -->
+                <div class="col-md-12">
+                    <p class="left">
+                        <h3 bind-unsafe-html="left.topIns"> </h3>
+                        <div id="{{left.id}}-{{$index}}" class="listLeft green" droppable>
+                            <div class="item987" id="{{ left.id }}" ng-repeat="item in left[left.id]" draggable>
+                                  {{item.text}}
+                                  <!-- <span  ng-click="removeBox(left.id,item,$parent.$index)" style="color:white"> X</span>  -->
+                            </div>
+                        </div>
+                    </p>
+                </div>
+                <div class="col-md-12">
+                    <p class="paraalign" bind-unsafe-html="left.paragraph" > </p>
+                </div>
+              </div>
+            </div>
+        </div>
+
+            </div>
+            </div>
+            <div class="right">
+            <div>
+            <div style="background-color:white;padding: 0 0 0 27px;"  class="col-md-12 points_table_scrollbar">
+            <br>
+              <!-- <h4>Questions 1-6</h4>
+              <p class="text">
+                  Do the following statements agree with the information given in Reading Passage 1? 
+                  In boxes 1-6 on you answer sheet, write
+              </p> -->
+              <div  class="row" ng-repeat="data in quedata[part].quetions"  >
+                <p  ng-bind-html="data.paragraph"></p>
+                  <!-- Question type 1 -->
+                  <div ng-if="data.question_type_id==1" >
+                        <div ng class="expandcollapse-item" >
+                              <div  class="clickExp expandcollapse-heading-collapsed"  >
+                                  <p bind-unsafe-html="data.name"></p>
+                              </div>
+                              <div class="slideDown ng-hide" >
+                                <div class="expand-collapse-content" >
+                                    <div class="input-group pract radio i-checks" ng-repeat="options in data.options">
+                                        <label style="margin-bottom: 10px;">
+                                            <input type="radio"  ng-click="typeReviewRemainder(1,$parent.$index,$index)" name="type1_{{$parent.$index}}_{{$index}}" value="1" ng-value="1"   ng-model="options.user_ans" >
+                                            <i></i> 
+                                            <span bind-unsafe-html="options.name"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                    
+                    <!-- <br> -->
+                  <!-- Question type 2 -->
+                  <div ng-if="data.question_type_id==2" >
+                    <p>{{data.name}}</p>
+                    <div ng-repeat="options in data.options">
+                        <!-- {{options.user_ans}} -->
+                      <p><span><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;<span><span class="quetype2" bind-unsafe-html="options.name"></span></p>
+                    </div>
+                  </div>
+                  <!-- Question type 3 -->
+                  <!-- <div ng-if="data.question_type_id==3" >
+                    <h4 >{{data.name}}</h4>
+                    <div ng-repeat="options in data.options" >
+                        <label>
+                          
+                            <span  bind-unsafe-html="options.name" ></span>
+                        </label>
+                    </div>
+                  </div> -->
+                  <div ng-if="data.question_type_id==3" class="col-md-11" >
+                      <h4 bind-unsafe-html="data.name"> </h4>
+                      <table border="{{data.tableBorder}}">
+                        <tr bind-unsafe-html="data.tableHeader"> </tr>
+                         <tr>
+                          <td>
+                              <span ng-repeat="options in data.options" >
+                                  <!-- {{options}} -->
+                                  <p><span><i class="fa fa-circle" aria-hidden="true"></i>&nbsp;&nbsp;</span><span  bind-unsafe-html="options.name" ></span></p>
+                              </span>
+                          </td>
+                      </tr>
+                      <tr bind-unsafe-html="data.tableFooter"> </tr>
+                    </table>
+                      
+                  </div>
+                  <!-- Question type 4 -->
+                  <div class="table table-responsive" ng-if="data.question_type_id==4 || data.istableview==true">
+                      <table border="1">
+                          <thead>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                            <th>E</th>
+                            <th>F</th>
+                          </thead>
+                          <tbody>
+                            <tr >
+                                <td>{{data.name}}</td>
+                                <td data ng-repeat="options in data.options">
+                                  <span bind-unsafe-html="options.name" ></span>
+                                </td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <!-- Question type5 -->
+                  <div class="row vertical-menu rightli">
+                    <div ng-if="data.question_type_id==5" >
+                        
+                        <div id="{{data.boxname}}" style="padding: 11px;min-height: 200px; height: auto;border: none;" class="list red" droppable>
+                          <div class="item987" id="{{ item.id }}" ng-repeat="item in data.rights" draggable>
+                            {{ item.text }}
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                   <!-- Question type6 -->
+                   <div ng-if="data.question_type_id==6">
+                      <h4 >{{data.name}}</h4>
+                      <div ng-repeat="options in data.options" >
+                        <!-- {{options}} -->
+                          <label>
+                             <input type="checkbox" ng-click='typeReviewRemainder(6,$parent.$index,$index)' ng-model="options.user_ans" ng-disabled="checkBoxValidType6(options,data)"> <span style="position: relative;left: 21px; bottom: 18px; cursor: pointer;" bind-unsafe-html="options.name" ></span>
+                          </label>
+                        </div>
+                  </div>
+                  <!-- <br> -->
+            </div>
+            </div>
+          </div>
+        </div >
+        </div>
+      </div>
+    <br>
+    <div class="row">
+        <div class="row"  style="background-color:white;position: fixed; bottom: 10px; max-height: 100px; z-index: 1030;width: 100%;    border-top: 3px solid #E7EAED ">
+          <div  class="col-md-1" style="padding: 14px 1px 3px 46px;">
+            <label>
+              <input type="checkbox" ng-model="reviewModel" name="name" ng-click="setReview()"  ng-disabled="reviewModel == 9990">&nbsp;<span>Review</span>
+            </label>
+          </div>
+          <div class="col-md-10" style="background-color:white;padding: 11px 2px 6px 30px;">
+              <ul class="pagination  ">
+                <span class="partalign">Section-1</span>   
+                <span class="pagination part1"  ng-repeat="part1 in quedata['part1']['quetions']" >
+                    <li class="paghover part1s"  ng-if="part1.question_type_id == 1" 
+                      style="{{part1.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}">
+                      <!-- {{part1}} -->
+                      <!-- {{isAtttend}} -->
+                      <a  class="paghover part1a" ng-click="changePart('part1')" style="{{isAtttend(part1,1)  ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li> 
+                    <li class="paghover part1s" ng-if="part1.question_type_id == 2"  ng-repeat="child in part1.options" style="{{child.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}">
+                      <a  class="paghover part1a" ng-click="changePart('part1')"  style="{{isAtttend(child,2) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li>
+                    <li class="paghover part1s" ng-if="part1.question_type_id == 3"  ng-repeat="child in part1.options" style="{{child.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}">
+                        <a  class="paghover part1a" ng-click="changePart('part1')" style="{{isAtttend(child,3) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li>
+                    <li class="paghover part1s" ng-if="part1.question_type_id == 4" style="{{part1.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}" >
+                      <a  class="paghover part1a" ng-click="changePart('part1')" style="{{isAtttend(part1,4) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li>
+                    <li class="paghover part1s" ng-if="part1.question_type_id == 5"  ng-repeat="child in part1.options" style="{{part1.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}" >
+                        <a  class="paghover part1a" ng-click="changePart('part1')" style="{{isAtttend(child,5) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li>
+                    <li class="paghover part1s" ng-if="part1.question_type_id == 6"  ng-repeat="child in part1.options | limitTo: part1.limit" style="{{child.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}" >
+                        <!-- {{child.isAtttend}} -->
+                          <a  class="paghover part1a" ng-click="changePart('part1')"   style="{{isAtttend(child,6,$index) ? 'background-color:black;color:white;' : ''}}"></a>
+                      </li>
+                  </span>
+                <span class="partalign">Section-2</span>  
+                <span class="pagination part2"  ng-repeat="part2 in quedata['part2']['quetions']" >
+                    <li class="paghover part2s"  ng-if="part2.question_type_id == 1"  style="{{part2.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}"> 
+                      <a  class="paghover part2a" ng-click="changePart('part2')"  style="{{isAtttend(part2,1) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li> 
+                    <li class="paghover part2s" ng-if="part2.question_type_id == 2"  ng-repeat="child in part2.options" style="{{child.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}">
+                        {{child}}
+                      <a  class="paghover part2a" ng-click="changePart('part2')" style="{{isAtttend(child,2) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li>
+                    <li class="paghover part2s" ng-if="part2.question_type_id == 3"  ng-repeat="child in part2.options" style="{{child.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}">
+             
+                      <a  class="paghover part2a" ng-click="changePart('part2')" style="{{isAtttend(child,3) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li>
+                    <li class="paghover part2s" ng-if="part2.question_type_id == 4"  style="{{part2.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}">
+                        <a  class="paghover part2a" ng-click="changePart('part2')" style="{{isAtttend(part2,4) ? 'background-color:black;color:white;' : ''}}"></a> 
+                    </li>
+                    <li class="paghover part2s" ng-if="part2.question_type_id == 5"  ng-repeat="child in part2.options" style="{{child.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}">
+                        <a  class="paghover part2a" ng-click="changePart('part2')" style="{{isAtttend(child,5) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li>
+                    <li class="paghover part2s" ng-if="part2.question_type_id == 6"  ng-repeat="child in part2.options | limitTo: part2.limit" style="{{child.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}" >
+                        <!-- {{child.isAtttend}} -->
+                          <a  class="paghover part1a" ng-click="changePart('part2')"   style="{{isAtttend(part2,6,$index) ? 'background-color:black;color:white;' : ''}}"></a>
+                      </li>
+                  </span><br>
+                <span class="partalign">Section-3</span>  
+                <span class="pagination part3"  ng-repeat="part3 in quedata['part3']['quetions']" >
+                    <li class="paghover part3s"  ng-if="part3.question_type_id == 1" style="{{part3.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}"> 
+                      <a  class="paghover part3a" ng-click="changePart('part3')" style="{{isAtttend(part3,1) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li> 
+                    <li class="paghover part3s" ng-if="part3.question_type_id == 2"  ng-repeat="child in part3.options" style="{{child.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}">
+                        <a  class="paghover part3a" ng-click="changePart('part3')" style="{{isAtttend(child,2) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li>
+                    <li class="paghover part3s" ng-if="part3.question_type_id == 3"  ng-repeat="child in part3.options" style="{{child.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}">
+                        <a  class="paghover part3a" ng-click="changePart('part3')" style="{{isAtttend(child,3) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li>
+                    <li class="paghover part3s" ng-if="part3.question_type_id == 4" style="{{part3.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}">
+                        <a  class="paghover part3a" ng-click="changePart('part3')" style="{{isAtttend(part3,4) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li>
+                    <li class="paghover part3s" ng-if="part3.question_type_id == 5"  ng-repeat="child in part3.options" style="{{part3.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}" >
+                        <a  class="paghover part3a" ng-click="changePart('part3')" style="{{isAtttend(child,5) ? 'background-color:black;color:white;' : ''}}"></a>
+                    </li>
+                    <li class="paghover part3s" ng-if="part3.question_type_id == 6"  ng-repeat="child in part3.options | limitTo: part3.limit" style="{{child.isReview ? ' border-radius: 15px; background:#0e0303; padding: 3px;  ' : ''}}" >
+                        <!-- {{child.isAtttend}} -->
+                          <a  class="paghover part3a" ng-click="changePart('part3')"   style="{{isAtttend(part3,6,$index) ? 'background-color:black;color:white;' : ''}}"></a>
+                      </li>
+                  </span>
+              </ul>
+          </div>
+          <div  class="col-md-1">
+           <BR>
+              <button style="background: black;" ng-if="part=='part3'" ng-click="gotToNext()" class="btn btn-primary">Save & Next</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div ng-show="loader">
+    <center><img class="img-responsive" style="width: 100px; height: 100px; position: relative; top: 200px;" src="assets/logo1.gif" /></center>   
+  </div>
+</div>
+
+  <style>
+    .myalign{
+      border: none;
+    border-bottom: 1px solid;
+    text-align: center;
+    width: 162px;
+    cursor: pointer;
+    }
+    .panel-body {
+  padding: 0px !important;
+  }
+  @keyframes spin {
+  from {
+  transform: rotateZ(0);
+  }
+  to {
+  transform: rotateZ(1turn);
+  }
+  }
+  @media (min-width:768px) and (max-width:980px) {
+  .question-buttons {
+  width: 94%;
+  }
+  }
+  @media (max-width:767px) {
+  .reading-footer {
+  position: absolute;
+  top: 970px;
+  bottom: inherit;
+  }
+  .question-buttons {
+  width: 94%;
+  }
+  .clock {
+  text-align: left;
+  line-height: 4.5em;
+  }
+  .left{
+  width: 100% !important;
+  }
+  .splitter-container{
+  display: block !important;
+  }
+  }
+  .paraalign{
+  text-align: justify;
+  font-size: 15px;
+  line-height: 22px;
+  }
+  .paraoverview{
+  height: 520px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  }
+  .staff {
+  margin: 10px 0;
+  }
+  .staff-block {
+  float: left;
+  width: 48%;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  }
+  .staff-title {
+  /* font-family: Verdana, Tahoma, Arial, Serif; */
+  background-color: #1162c5;
+  color: white;
+  padding: 4px;
+  border: solid 1px #2e3d7a;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 6px;
+  font-weight: bold;
+  }
+  .staff-name {
+  /* font-family: Myriad Web Pro; */
+  font-size: 14px;
+  line-height: 30px;
+  padding: 0 10px;
+  background-color: silver !important;
+  width: 600px !important;
+  }
+  .staff-name:hover {
+  background-color: silver !important;
+  cursor: pointer;
+  }
+  .staff-section {
+  display: inline-block;
+  padding-left: 10px;
+  }
+  .staff-desc {
+  font-family: Myriad Web Pro;
+  height: 0px;
+  padding: 3px;
+  overflow: hidden;
+  /* background-color: #def; */
+  display: block;
+  /* /* border: solid 1px silver; */
+  }
+  .staff-desc p {
+  text-align: justify;
+  margin-top: 5px;
+  }
+  .staff-desc img {
+  margin: 5px 10px 5px 5px;
+  float: left;
+  height: 185px;
+  }
+  .partalign{
+  position: relative;
+  bottom: 10px;
+  font-weight: bold;
+  }
+  /* .paghover:hover{
+  background: black;
+  color: white;
+  /* padding: 1px solid; 
+  } */
+  input:focus{
+  background: yellow;
+  }
+  li a:hover{
+  background: black !important;
+  color: white !important;
+  cursor: pointer;
+  }
+  .staff-name:hover{
+  background-color: #00C0EF !important;
+  color: white;
+  }
+  </style>
+  <script>
+  $('.staff-name').hover(function() {
+  $(this).toggleClass('hover');
+  });
+  
+  var lastItem;
+  
+  $('.expandcollapse-item').click(function(currentItem) {
+      alert("hai");
+  var currentItem = $(this);
+  if ($(this).next().height() == 0) {
+      $(lastItem).css({'font-weight':'normal'});
+      $(lastItem).next().animate({height: '0px'},400,'swing');
+      $(this).css({'font-weight':'bold'});
+      
+      // $(this).css({"background-color": 'red',"color" : "white"});
+      $(this).next().animate({height: '100px',opacity: 1},400,'swing');
+  } else {
+      $(this).css({'font-weight':'normal'});
+      $(this).next().animate({height: '0px',opacity: 1},400,'swing');
+  }
+  lastItem = $(this);
+  });
+  $('.splitter-container').SplitterBar();
+  $('.splitter-container2').SplitterBar();
+  </script>
+  <style type="text/css">
+    .list {
+      /* float: left; */
+      margin-left: 5px;
+      width: 50%;
+      height: 160px;
+    }
+    .listLeft {
+      float: left;
+      margin-left: 5px;
+      width: 50%;
+      height: 32px;
+    }
+    .red {
+      border: 1px solid black;
+    }
+    
+    .green {
+        border: 1px solid green;
+        min-width: 270px  !important ;
+      width: auto  !important;
+    }
+    .item987 {
+        width: auto;
+      border: 1px solid;
+      height: 30px;
+        text-align: center;
+       
+        padding: 6px 0 0 0;
+    }
+    .red .item987 {
+      background-color: black;
+      color: white;
+      cursor:grab !important;
+      min-width: 385px;
+    width: auto;
+      border: 1px dotted;
+      margin: 11px 0 0 0px;
+    }
+    .green .item987 {
+      background-color: green;
+      color: white;
+      min-width: 270px  !important;
+      width: auto  !important;
+      cursor: grab;
+      
+    }
+    
+    .dragover {
+      border: 2px dotted;
+      cursor: grab;
+      min-height: 50px;
+      height: auto;
+    
+    }
+    
+    .dragging {
+      border: 2px dotted;
+      cursor: grab;
+      /* min-height: 50px;
+      height: auto; */
+    
+    
+    }
+    #box1:hover{
+      min-height: 50px;
+      height: auto;
+    }
+    #description {
+      float: left;
+      margin-left: 20px;
+      
+    }
+    .quetype2{
+      position: relative;
+      left: 19px;
+      bottom: 17px;
+    }
+    
+    
+    /** Tag line style **/
+    .navbar-inverse {
+        height: 50px;
+        margin: 50px 0px 80px;
+    }
+    .brand-img {
+        border-radius: 50%;
+        position: relative;
+        top: -37px;
+        height: 128px;
+        width: 128px;
+    }
+    @media (max-width: 768px) {
+        .navbar-header {
+            float: left;
+            padding-left: 25px;
+        }
+        .navbar ul {
+            float: right;
+            display: inline-flex;
+        }
+    }
+    
+  </style>
+  

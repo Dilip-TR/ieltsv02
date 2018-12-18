@@ -1,0 +1,694 @@
+ {
+        "audiopath":"/uploads/1537965248.mp3",
+        "totaltime": "60",
+        "part1": {
+            "paragraph": "",
+            "title":"<p>SECTION - 1</p>",
+            "topInst": "<i><b>Questions 1 - 10</b> </i>",
+            "maintitle":"<p>Activities programme involving volunteers</p>",
+            "quetions": [
+                {
+                    "name": "7.Do the following statements agree with the information given in Reading Passage 1 ? In boxes 7-13 on your answer sheet, write",
+                    "noblk": 0,
+                    "paragraph": "what is api",
+                    "head":"<p>Monday evenings: computer training </p>",
+                    "question_type_id": 2,
+                    "category": "Math",
+                    "istable":false,
+                    "solutionVal": "",
+                    "status": 1001,
+                    "options": [
+                        {
+                            "iscircle":true,
+                            "name": "<p>Training needed in how to produce&nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='1' type='text' id='text_1' name='text1'> .</p>",
+                            "is_answer": [
+                                "simple",
+                                "documents"
+                            ],
+                            "isReview": false,
+                            "user_ans": ""
+                        }
+                        
+                    ]
+                },
+                {
+                    "name": "2",
+                    "noblk": 0,
+                    "paragraph": "what is api",
+                    "head":"<p>Tuesday afternoons: singing </p>",
+                    "question_type_id": 2,
+                    "category": "Math",
+                    "istable":false,
+                    "solutionVal": "",
+                    "status": 1001,
+                    "options": [
+                        {
+                            "iscircle":true,
+                            "head":"<p>Tuesday afternoons: singing </p>",
+                            "name": "<p>Training needed in how to produce&nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='2' type='text' id='text_1' name='text1'> .</p>",
+                            "is_answer": [
+                                "Keyboard"
+                            ],
+                            "isReview": false,
+                            "user_ans": ""
+                        }
+                        
+                    ]
+                },
+                {
+                    "name": "3",
+                    "noblk": 0,
+                    "paragraph": "",
+                    "question_type_id": 2,
+                    "head":"",
+                    "istable":false,
+                    "category": "Math",
+                    "solutionVal": "",
+                    "status": 1001,
+                    "options": [
+                        {
+                            "iscircle":false,
+                            "name": "<p>Thursday mornings: growing&nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='3' type='text' id='text_3' name='text3'>  .</p>",
+                            "is_answer": [
+                                "Flowers"
+                            ],
+                            "isReview": false,
+                            "user_ans": ""
+                        },
+                        {
+                            "iscircle":true,
+                            "name": "<p>The home doesn't have many &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='4' type='text' id='text_4' name='text4'>  for gardening .</p>",
+                            "is_answer": ["Tools"],
+                            "isReview": false,
+                            "user_ans": ""
+                        }
+                        
+                    ]
+                },
+                {
+                    "name": "5.Do the following statements agree with the information given in Reading Passage 1 ? In boxes 7-13 on your answer sheet, write",
+                    "noblk": 0,
+                    "paragraph": "what is api",
+                    "question_type_id": 2,
+                    "head":"<p>Once a month: meeting for volunteers and staff </p>",
+                    "category": "Math",
+                    "istable":false,
+                    "solutionVal": "",
+                    "status": 1001,
+                    "options": [
+                        
+                        {
+                            "iscircle":true,
+                            "head":"<p>Once a month: meeting for volunteers and staff </p>",
+                            "subhead":"<p>Interview </p>",
+                            "name": "<p> Go in on  &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='5' type='text' id='text_5' name='text5'>  any time  .</p>",
+                            "is_answer": ["Saturday"],
+                            "isReview": false,
+                            "user_ans": ""
+                        },
+                        {
+                            "iscircle":true,
+                            "name": "<p>Interview with assistant called &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='6' type='text' id='text_6' name='text6'> .</p>",
+                            "is_answer": [
+                                "Mairead"
+                            ],
+                            "isReview": false,
+                            "user_ans": ""
+                        },
+                        {
+                            "iscircle":true,
+                            "name": "<p>Address of home: 73  &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='7' type='text' id='text_7' name='text7'> .</p>",
+                            "is_answer": [
+                                "Bridge"
+                            ],
+                            "isReview": false,
+                            "user_ans": ""
+                        }
+                        
+                    ]
+                },
+                {
+                    "name": "6.Do the following statements agree with the information given in Reading Passage 1 ? In boxes 7-13 on your answer sheet, write",
+                    "noblk": 0,
+                    "paragraph": "what is api",
+                    "question_type_id": 2,
+                    "istable":false,
+                    "head":"<p>'Open house' days  </p>",
+                    "category": "Math",
+                    "solutionVal": "",
+                    "status": 1001,
+                    "options": [
+                        
+                        {
+                            "iscircle":true,
+                            "name": "<p>  Agreed to help on   &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='8' type='text' id='text_8' name='text8'>  any time  .</p>",
+                            "is_answer": [
+                                "14th of May ",
+                                "fourteenth of May"
+                            ],
+                            "isReview": false,
+                            "user_ans": ""
+                        },
+                        {
+                            "iscircle":true,
+                            "name": "<p>Interview with assistant called &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='9' type='text' id='text_9' name='text9'> .</p>",
+                            "is_answer": [
+                                "Park"
+                            ],
+                            "isReview": false,
+                            "user_ans": ""
+                        },
+                        {
+                            "iscircle":true,
+                            "name": "<p>Address of home: 73  &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='10' type='text' id='text_10' name='text10'> .</p>",
+                            "is_answer": [
+                                "Newspaper"
+                            ],
+                            "isReview": false,
+                            "user_ans": ""
+                        }
+                        
+                    ]
+                }
+            ]
+        },
+        "part2": {
+          "paragraph": "",
+          "title":"<p>SECTION - 2</p>",
+          "topInst": "<i><b>Questions 11 - 15</b></i>",
+          "instructions":"<i>Label the plan below. Write the correct letter, A – H, next to Questions 11 – 15</i>",
+          "maintitle":"",
+            "quetions": [
+              {
+                "question_type_id": 5,
+                "isiamge": true,
+                "imgpath": "/uploads/1542792217.jpg",
+                "boxname": "box1",
+                "rights": [
+                  {
+                    "id": "red1",
+                    "text": "A",
+                    "content1":false
+                    
+                  },
+                  {
+                    "id": "red2",
+                    "text": "B",
+                    "content1":false
+                  },
+                  {
+                    "id": "red3",
+                    "text": "C",
+                    "content1":false
+                  },
+                  {
+                    "id": "red4",
+                    "text": "D",
+                    "content1":false
+                  },
+                  {
+                    "id": "red5",
+                    "text": "E",
+                    "content1":false
+                  },
+                  {
+                    "id": "red6",
+                    "text": "F",
+                    "content1":false
+                  }
+                ],
+                "options": [
+                  {
+                    "id": "input11",
+                    "paragraph": "11 Newspapers",
+                    "input11": [
+                      
+                    ],
+                    "isReview": false,
+                    "is_answer": ["C","c"]
+                  },
+                  {
+                    "id": "input12",
+                    "paragraph": "12 Computers",
+                    "input12": [
+                      
+                    ],
+                    "isReview": false,
+                    "is_answer": ["B","b"]
+                  },
+                  {
+                    "id": "input13",
+                    "paragraph": "13 Photocopier",
+                    "input13": [
+                      
+                    ],
+                    "isReview": false,
+                    "is_answer": ["A","a"]
+                  },
+                  {
+                    "id": "input14",
+                    "paragraph": "14 Cafe",
+                    "input14": [
+                      
+                    ],
+                    "isReview": false,
+                    "is_answer": ["H","h"]
+                  },
+                  {
+                    "id": "input15",
+                    "paragraph": "15 Sports Books",
+                    "input15": [
+                      
+                    ],
+                    "isReview": false,
+                    "is_answer": ["G","g"]
+                  }
+
+                ]
+              },
+              {
+                "name": "<p><b>Questions 16 - 20</b></p>",
+                "title1":"<p>Complete the table below.</p>",
+                "title2":"<p>Write ONE WORD ONLY for each answer.</p>",
+                "question_type_id": 2,
+                "head":"<p>Complete the table below. </p>",
+                "category": "Math",
+                "istable":true,
+                "td1":"Name",
+                "td2":"New responsibility",
+                "solutionVal": "",
+                "status": 1001,
+                "options": [
+                    
+                  
+                    {
+                      "title":"<p>Jenny Reed</p>",
+                      "name": "<p>Buying  &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='16' type='text' id='text_16' name='text16'> for the Centre.</p>",
+                      "is_answer": [
+                          "Films"
+                      ],
+                      "isReview": false,
+                      "user_ans": ""
+                    },
+                    {
+                      "title":"<p>Phil Penshurst</p>",
+                      "name": "<p>Help with writing &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='17' type='text' id='text_17' name='text17'> for courses.</p>",
+                      "is_answer": [
+                          "Reports"
+                      ],
+                      "isReview": false,
+                      "user_ans": ""
+                    },
+                    {
+                      "title":"<p>Tom Salisbury</p>",
+                      "name": "<p>Information on topics related to the &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='18' type='text' id='text_18' name='text18'> .</p>",
+                      "is_answer": [
+                          "Region"
+                      ],
+                      "isReview": false,
+                      "user_ans": ""
+                    },
+                    {
+                      "title":"<p>Saeed Aktar</p>",
+                      "name": "<p>Finding a &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='19' type='text' id='text_19' name='text19'> .</p>",
+                      "is_answer": [
+                          "Job"
+                      ],
+                      "isReview": false,
+                      "user_ans": ""
+                    },
+                    {
+                      "title":"<p>Shilpa Desai</p>",
+                      "name": "<p>Help with  &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='20' type='text' id='text_20' name='text20'> .</p>",
+                      "is_answer": [
+                          "Housing"
+                      ],
+                      "isReview": false,
+                      "user_ans": ""
+                    }
+                ]
+             }
+            ]
+          },
+        "part3":{
+
+          "paragraph": "",
+          "title":"<p>SECTION - 3</p>",
+          "topInst": "<i><b>Questions 21 - 30</b></i>",
+          
+          "instructions":"",
+          "maintitle":"",
+            "quetions": [
+              {
+                "question_type_id": 5,
+                "isiamge": false,
+                "imgpath": "/uploads/1522859539.jpg",
+                "boxname": "box2",
+                "title1":"<p>What helped Stewart with each of the following stages in making his training film for museum employees?</p>",
+                 "title2":"<p>Choose <b>SEVEN</b> answers from the box and write the correct letter, <b>A - I</b>, next to Questions 21-27.</p>",
+                "rights": [
+                  {
+                    "id": "red21",
+                    "text": "A",
+                    "content1":true,
+                    "content":"A.advice from friends"
+                  },
+                  {
+                    "id": "red22",
+                    "text": "B",
+                    "content1":true,
+                    "content":"B.information on a website"
+                  },
+                  {
+                    "id": "red23",
+                    "text": "C ",
+                    "content1":true,
+                    "content":"C.being allowed extra time "
+                  },
+                  {
+                    "id": "red24",
+                    "text": "D",
+                    "content1":true,
+                    "content":"D.meeting a professional film maker"
+                  },
+                  {
+                    "id": "red25",
+                    "text": "E",
+                    "content1":true,
+                    "content":"E.good weather conditions"
+                  },
+                  {
+                    "id": "red26",
+                    "text": "F",
+                    "content1":true,
+                    "content":"F.getting a better computer "
+                  },
+                  {
+                    "id": "red27",
+                    "text": "G",
+                    "content1":true,
+                    "content":"G.support of a manager"
+                  },
+                  {
+                    "id": "red28",
+                    "text": "H",
+                    "content1":true,
+                    "content":"H.help from a family member"
+                  },
+                  {
+                    "id": "red29",
+                    "text": "I",
+                    "content1":true,
+                    "content":"I.work on a previous assignments"
+                  }
+                ],
+                "options": [
+                  {
+                    "id": "input21",
+                    "paragraph": "21 finding a location",
+                    "input21": [
+                      
+                    ],
+                    "isReview": false,
+                    "is_answer": ["E","e"]
+                  },
+                  {
+                    "id": "input22",
+                    "paragraph": "22 deciding on equipment ",
+                    "input22": [
+                      
+                    ],
+                    "isReview": false,
+                    "is_answer": ["I","i"]
+                  },
+                  {
+                    "id": "input23",
+                    "paragraph": "23 writing the script",
+                    "input23": [
+                      
+                    ],
+                    "isReview": false,
+                    "is_answer": ["C","c"]
+                  },
+                  {
+                    "id": "input24",
+                    "paragraph": "24 casting",
+                    "input24": [
+                      
+                    ],
+                    "isReview": false,
+                    "is_answer": ["G","g"]
+                  },
+                  {
+                    "id": "input25",
+                    "paragraph": "25 filming",
+                    "input25": [
+                      
+                    ],
+                    "isReview": false,
+                    "is_answer": ["B","b"]
+                  },
+                  {
+                    "id": "input26",
+                    "paragraph": "26 editing",
+                    "input26": [
+                      
+                    ],
+                    "isReview": false,
+                    "is_answer": ["D","d"]
+                    
+                  },
+                  {
+                    "id": "input27",
+                    "paragraph": "27 designing the DVD cover",
+                    "input27": [
+                      
+                    ],
+                    "isReview": false,
+                    "is_answer": ["A","a"]
+                  }
+
+                ]
+              },
+              {
+                "name": "<p><b>Stewart's work placement: benefits to the Central Museum Association</b></p>",
+                "title":"<p><b>Questions 27 - 30</b></p>",
+                "title1":"<p>Complete the notes below.</p>",
+                "title2":"<p>Write ONE<i>WORD ONLY</i>  for each answer.</p>",
+                "question_type_id": 2,
+                "istable":false,
+                "td1":"Name",
+                "td2":"New responsibility",
+                "solutionVal": "",
+                "status": 1001,
+                "options": [
+                    
+                  
+                    {
+                      "iscircle":true,
+                      "name": "<p>his understanding of the Association's  &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='28' type='text' id='text_28' name='text27'><span><i class='fa fa-circle' aria-hidden='true'></i>&nbsp;the reduction in expense</span></p>",
+                  
+                      "is_answer": [
+                          "Aims ",
+                          "objectives ",
+                          "goals"
+                      ],
+                      "isReview": false,
+                      "user_ans": ""
+                    },
+                    {
+                      "iscircle":true,
+                      "name": "<p>increased co-operation between &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='29' type='text' id='text_28' name='text29'><br> </p>",
+                      "is_answer": [
+                          "Staff"
+                      ],
+                      "isReview": false,
+                      "user_ans": ""
+                    },
+                    {
+                      "iscircle":true,
+                      "name": "<p> continuous &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='30' type='text' id='text_30' name='text30'></p>",
+                      "is_answer": [
+                          "Feedback"
+                      ],
+                      "isReview": false,
+                      "user_ans": ""
+                    }
+                ]
+             }
+            ]
+        },
+        "part4":{
+          "paragraph": "",
+          "title":"<p>SECTION - 4</p>",
+          "topInst": "<i><b>Questions 31 - 40</b> </i>",
+          "maintitle":"<p>New Caledonian crows and the use of tools</p>",
+          "quetions": [
+              {
+                  "name": "",
+                  "noblk": 0,
+                  "paragraph": "what is api",
+                  "head":"<p><b>Examples of animals using tools </b></p>",
+                  "question_type_id": 2,
+                  "category": "Math",
+                  "istable":false,
+                  "solutionVal": "",
+                  "status": 1001,
+                  "options": [
+                      {
+                          "iscircle":true,
+                          "name": "<p>Betty New Caledonian crow  made a&nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='31' type='text' id='text_31' name='text31'> .</span></p>",
+                          "is_answer": [
+                              "Hook"
+                          ],
+                          "isReview": false,
+                          "user_ans": ""
+                      }
+                      
+                  ]
+              },
+              {
+                  "name": "5.Do the following statements agree with the information given in Reading Passage 1 ? In boxes 7-13 on your answer sheet, write",
+                  "noblk": 0,
+                  "paragraph": "what is api",
+                  "head":"<p><b>New Zealand and Oxford experiment</b></p>",
+                  "question_type_id": 2,
+                  "category": "Math",
+                  "istable":false,
+                  "solutionVal": "",
+                  "status": 1001,
+                  "options": [
+                      {
+                          "iscircle":true,
+                          "name": "<p>three stages: crows needed to move a &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='32' type='text' id='text_32' name='text32'>&nbsp;in order to reach a short stick; then<BR><BR>use the short stick to reach a long stick; then use the long stick to reach food .</span></p>",
+                          "is_answer": [
+                              "String"
+                          ],
+                          "isReview": false,
+                          "user_ans": ""
+                      }
+                      
+                  ]
+              },
+              {
+                  "name": "3.Do the following statements agree with the information given in Reading Passage 1 ? In boxes 7-13 on your answer sheet, write",
+                  "noblk": 0,
+                  "paragraph": "",
+                  "question_type_id": 2,
+                  "head":"<p><b>Oxford research</b></p>",
+                  "istable":false,
+                  "category": "Math",
+                  "solutionVal": "",
+                  "status": 1001,
+                  "options": [
+                     
+                      {
+                          "iscircle":true,
+                          "name": "<p>crows used sticks to investigate whether there was any  &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='33' type='text' id='text_33' name='text33'> </p>",
+                          "is_answer": [
+                              "Danger"
+                          ],
+                          "isReview": false,
+                          "user_ans": ""
+                      },
+                      {
+                        "iscircle":true,
+                        "name": "<p>Barney used a stick to investigate a snake made of   &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='34' type='text' id='text_34' name='text34'> </p>",
+                        "is_answer": [
+                            "Rubber"
+                        ],
+                        "isReview": false,
+                        "user_ans": ""
+                    },
+                    {
+                        "iscircle":true,
+                        "name": "<p>Pierre used a stick to investigate a   &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='35' type='text' id='text_35' name='text35'> <br><br><span style='margin: 0px 0px 0px -20px;'><span><span><i class='fa fa-circle' aria-hidden='true'></i>&nbsp;</span>used a stick to investigate a metal toad</span><br><br><span style='margin: 0px 0px 0px -20px;'><span><span><i class='fa fa-circle' aria-hidden='true'></i>&nbsp;</span>the crows only used sticks for the first contact</span></p>",
+                        "is_answer": [
+                            "Light"
+                        ],
+                        "isReview": false,
+                        "user_ans": ""
+                    }
+
+                      
+                  ]
+              },
+              {
+                "name": "5.Do the following statements agree with the information given in Reading Passage 1 ? In boxes 7-13 on your answer sheet, write",
+                "noblk": 0,
+                "paragraph": "what is api",
+                "head":"<p><b>Conclusions of above research</b></p>",
+                "question_type_id": 2,
+                "category": "Math",
+                "istable":false,
+                "solutionVal": "",
+                "status": 1001,
+                "options": [
+                    {
+                        "iscircle":true,
+                        "name": "<p><span>ability to plan provides interesting evidence of the birds' cognition .<br><br></span> &nbsp;&nbsp;<span style='margin: 0px 0px 0px -20px;'><span><i class='fa fa-circle' aria-hidden='true'></i>&nbsp;</span></span></span>unclear whether this is evidence of the birds'<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='36' type='text' id='text_36' name='text36'>&nbsp;</span></p>",
+                        "is_answer": [
+                            "Intelligence"
+                        ],
+                        "isReview": false,
+                        "user_ans": ""
+                    }
+                    
+                ]
+            },
+            {
+                "name": "3.Do the following statements agree with the information given in Reading Passage 1 ? In boxes 7-13 on your answer sheet, write",
+                "noblk": 0,
+                "paragraph": "",
+                "question_type_id": 2,
+                "head":"<p><b>Exeter and Oxford research in New Caledonia</b></p>",
+                "istable":false,
+                "category": "Math",
+                "solutionVal": "",
+                "status": 1001,
+                "options": [
+                   
+                    {
+                        "iscircle":true,
+                        "name": "<p>Exeter and Oxford research in New Caledonia  &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='37' type='text' id='text_37' name='text37'> </p>",
+                        "is_answer": [
+                            "Tail(s)"
+                        ],
+                        "isReview": false,
+                        "user_ans": ""
+                    },
+                    {
+                      "iscircle":true,
+                      "name": "<p>for the birds  &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='38' type='text' id='text_38' name='text38'>for the birds</p>",
+                      "is_answer": [
+                          "Energy"
+                      ],
+                      "isReview": false,
+                      "user_ans": ""
+                  },
+                  {
+                      "iscircle":true,
+                      "name": "<p>larvaes specific  &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='39' type='text' id='text_39' name='text39'></p>",
+                      "is_answer": [
+                          "Chemical"
+                      ],
+                      "isReview": false,
+                      "user_ans": ""
+                  },
+                  {
+                    "iscircle":true,
+                    "name": "<p>scientists will analyse what the birds include in their   &nbsp;&nbsp;<input ng-model='options.user_ans' ng-click='typeReviewRemainder(2,$parent.$index,$index)'  style='text-align: center;border: none; border-bottom: 1px solid; width: 155px;' placeholder='40' type='text' id='text_40' name='text40'> </p>",
+                    "is_answer": [
+                        "Diet"
+                    ],
+                    "isReview": false,
+                    "user_ans": ""
+                }
+
+                    
+                ]
+            }
+
+          ]
+        } 
+    }
